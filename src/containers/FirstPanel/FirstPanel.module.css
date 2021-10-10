@@ -3,8 +3,7 @@
     width: 40vw; 
     height: 100vh; 
     border: none;
-    background-color: var(--color2);
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+   
     /*! This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     position: relative; 
     transition: all 0.5s ease-in-out;
@@ -23,19 +22,6 @@
 }
 
 
-.rectangle {
-    position: absolute;
-    right: -1px;
-    background-color: var(--color1);
-    height: 100vh;
-    width: 50px;
-    shape-outside: polygon(100% 0, 0% 100%, 100% 100%);
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    -webkit-shape-outside: polygon(100% 0, 0% 100%, 100% 100%);
-    -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    z-index: 10;
-}
-
 .content{
     padding: 2rem 2rem 2rem 3rem;
     display: flex;
@@ -45,6 +31,9 @@
     height: 100vh;
     width: 100%; 
     z-index:3 ;
+    clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%);
+    background-color: var(--color2);
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
     box-sizing: border-box;
 }
 

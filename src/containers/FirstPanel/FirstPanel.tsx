@@ -12,7 +12,6 @@ const FirstPanel:React.FC= () => {
                 Hello World
             </h1>
         </div>
-        <div className={classes.rectangle}></div>
     </div>
 }
 export default FirstPanel;

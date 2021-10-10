@@ -11,7 +11,7 @@ const Switch: React.FC<SwitchProps> = (props) => {
     const [isLeft, setIsLeft] = useState(false);
 
 
-    return <button className={classes.switch} style={{ backgroundColor: !isLeft ? 'var(--color2)' : 'var(--color1)' }}  onClick = {() => setIsLeft(e => !e)}>
+    return <button className={classes.switch} style={{ backgroundColor: isLeft ? 'transparent' : 'var(--color2)' }}  onClick = {() => setIsLeft(e => !e)}>
         <div className={`${classes.switch__option}  ${classes.cut} `}  style={{backgroundColor: isLeft ? 'var(--color2)': 'var(--color1)'}}>
             {props.optionLeft}
         </div>
