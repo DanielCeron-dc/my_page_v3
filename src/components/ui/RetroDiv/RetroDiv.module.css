@@ -1,0 +1,30 @@
+.retroDiv {
+    --glow-color: var(--color1);
+    --glow-spread-color: var(--color1-dark);
+    --enhanced-glow-color: var(--color1);
+    --btn-color: var(--color1-dark);
+    outline: none;
+    border: .25em solid var(--glow-color);
+
+    padding: 1em 3em;
+    color: var(--color2);
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+            0 0 4em 1em var(--glow-spread-color),
+            inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.2s;
+}
+
+.retroDiv:hover {
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+            0 0 4em 2em var(--glow-spread-color),
+            inset 0 0 .75em .25em var(--glow-color);
+}
+
