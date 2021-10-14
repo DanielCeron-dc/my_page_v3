@@ -1,50 +1,107 @@
 .firstPanel {
     display: flex;
-    width: 40vw; 
+    width: 70vw; 
     height: 100vh; 
     border: none;
-   
-    /*! This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-    position: relative; 
-    transition: all 0.5s ease-in-out;
+    position: absolute; 
+    left: 0; 
+    z-index: 100;
+    transform: translate(-30vw, 0);
+    transition: all ease-in-out 0.5s;
+    
 }
 
-.firstPanel:hover {
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
+.firstPanel.expanded {
+    transform: translate(0, 0);
+    transition: all ease-in-out 0.5s;
 }
 
-.firstPanel img {
+.firstPanel .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
 }
 
-
-.content{
-    padding: 2rem 2rem 2rem 3rem;
+.extendButton {
+    border: 3px solid var(--color2);
+    font-size: larger;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100%; 
-    z-index:3 ;
-    clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%);
-    background-color: var(--color2);
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-    box-sizing: border-box;
+    bottom: 2rem;
+    right: -20rem;
 }
 
-.content h1 {
+.extendButton.expanded {
+    transform: rotate(180deg) translate(19.5rem, 0);
+    padding: 0;
+
+}
+
+
+.extendButton:hover.expanded {
+    transform: rotate(180deg) translate(19.5rem, 0);
+    padding: 0;
+}
+
+.extendButton:hover .svg {
+    fill: black;
+}
+
+.extendButton:hover  {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.svg {
+    fill: var(--color2);
+    width: 2.7rem;
+    height: 2.7rem;
+    cursor: pointer;
+}
+
+
+.content{
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    background-color: var(--color2);
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 70vw; 
+    z-index:3 ;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+    border: none;
+}
+
+
+
+.content .h1 {
     color: var(--color1);
     font-size:  3em;
     font-weight: bold;
     padding: 0;
     margin: 0 2rem 0 0;
 }
-.content p {
+
+
+.content__main {
+    box-sizing: border-box;
+    padding: 2rem 2rem 2rem 3rem;
+    position: relative;
+    display: flex;
+    width: 40vw;
+    margin: 0 0 0 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.blackBackground{
     padding: 1rem;
     background-color: var(--color1);
     border-radius: 2rem;
@@ -53,4 +110,9 @@
     font-weight: bold;
     margin: 0 2rem 0 0;
     box-shadow: 1rem 0.5rem 1rem rgba(0,0,0,0.5);
+}
+
+.blackBackground img{
+    width: 6rem;
+    height: 6rem;
 }

@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './Switch.module.css';
 
 
-type SwitchProps = {
+type SwitchProps = { 
     optionLeft: string,
     optionRight: string,
+    isLeft: boolean,
+    onSwitch: (isLeft: boolean) => void
 };
 
 const Switch: React.FC<SwitchProps> = (props) => {
-    const [isLeft, setIsLeft] = useState(false);
-
-
-    return <button className={classes.switch} style={{ backgroundColor: isLeft ? 'transparent' : 'var(--color2)' }}  onClick = {() => setIsLeft(e => !e)}>
-        <div className={`${classes.switch__option}  ${classes.cut} `}  style={{backgroundColor: isLeft ? 'var(--color2)': 'var(--color1)'}}>
+ 
+    return <button className={classes.switch} style={{ backgroundColor: props.isLeft ? 'transparent' : 'var(--color2)' }}
+        onClick={() => props.onSwitch(!props.isLeft)}
+    >
+        <div className={`${classes.switch__option}  ${classes.cut} `}  style={{backgroundColor: props.isLeft ? 'var(--color2)': 'var(--color1)'}}>
             {props.optionLeft}
         </div>
         <div className={`${classes.switch__option}` }>

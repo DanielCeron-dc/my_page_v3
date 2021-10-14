@@ -1,0 +1,117 @@
+.loader {
+    position: relative;
+    width: 200px; 
+    height: 200px;
+    background-color: rgb(31, 31, 31);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    color: white; 
+    overflow: hidden;
+}
+.loader:hover  {
+    background-color: var(--color2);
+    color: rgb(31, 31, 31);
+    box-shadow: 0 0 6px var(--color2), 0 0 25px var(--color2), 0 0 50px var(--color2), 0 0 200px var(--color2);
+    transform: scale(1.1);
+}
+.loader span:nth-child(1){
+    position: absolute;
+    top: 0; 
+    left: -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--color2)); 
+    animation: loadingAnimation1 2s linear infinite;
+    animation-delay: 0s;
+}
+@keyframes loadingAnimation1 {
+    0% {
+        left: -100%;
+    }
+    50%,100% {
+        left: 100%;
+    }
+}
+.loader span:nth-child(2){
+    position: absolute;
+    top: -100%; 
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--color2)); 
+    animation: loadingAnimation2 2s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes loadingAnimation2 {
+    0% {
+        top: -100%;
+    }
+    50%,100% {
+        top: 100%;
+    }
+}
+
+.loader span:nth-child(3){
+    position: absolute;
+    bottom: 0; 
+    right: -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(280deg, transparent, var(--color2)); 
+    animation: loadingAnimation3 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes loadingAnimation3 {
+    0% {
+        right: -100%;
+    }
+    50%,100% {
+        right: 100%;
+    }
+}
+
+.loader span:nth-child(4){
+    position: absolute;
+    bottom: -100%; 
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(280deg, transparent, var(--color2)); 
+    animation: loadingAnimation4 2s linear infinite;
+    animation-delay: 1.5s;
+}
+@keyframes loadingAnimation4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,100% {
+        bottom: 100%;
+    }
+}
+
+
+.loader h3 {
+    font-family: consolas;
+    color: var(--color2); 
+    overflow: hidden;
+    letter-spacing: 2px;
+    border-right: 1px solid var(--color2);
+    animation: typing 3s steps(5, end) infinite;
+}
+
+.loader:hover h3 {
+    color: rgb(31, 31, 31);
+    border-right: 1px solid rgb(31, 31, 31);
+}
+
+@keyframes typing {
+    0%, 90%, 100% {
+        width: 0;
+    }
+    30%, 60% {
+        width: 123.89px;
+    }
+}

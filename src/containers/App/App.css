@@ -5,10 +5,8 @@
   display: flex;
   overflow: hidden;
   background-color:var(--color1); 
-
-background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
+  background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-
 }
 
 .img {
@@ -19,4 +17,13 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-brick-w
   z-index: 1;
   position: fixed;
   right: 0;
+}
+
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  height: auto;
+  display:block;
 }

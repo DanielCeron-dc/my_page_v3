@@ -8,6 +8,7 @@ import { getRandomInt } from "../../tools/mathTools";
 import { useLoader } from "@react-three/fiber";
 
 import { projects } from "tools/informationProjects";
+import { useAppStore } from "store/App.store";
 
 interface BoxPhysicsProps {
     id: number;
@@ -17,6 +18,8 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
 
 
     const texture = useLoader(THREE.TextureLoader, projects[props.id].img);
+    const {setExpandedInfo, setSelectedProject} = useAppStore(); 
+
 
     const [ref, api] = useBox(() => ({
         mass: 1,
@@ -41,7 +44,13 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
 
     }, [api, props.id]);
 
-    return <mesh ref={ref} castShadow receiveShadow>
+    return <mesh ref={ref} castShadow receiveShadow
+        onClick={() => {
+            setExpandedInfo(true);
+            setSelectedProject(props.id);
+            //setYProjectPosition((props.id*384)  -100);
+        }}
+    >
         <boxBufferGeometry args={[3, 3, 3]} />
         <meshBasicMaterial map={texture} />
     </mesh>

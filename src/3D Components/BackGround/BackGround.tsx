@@ -1,10 +1,28 @@
-import React, { Suspense } from 'react';
-import { Canvas, extend } from "@react-three/fiber";
+import React, { Suspense, useEffect } from 'react';
+import { Canvas, extend, useThree } from "@react-three/fiber";
 import Orbit from '../Controls/Orbit';
 import Spinner from 'components/ui/Spinner/Spinner';
-
+import { useAppStore } from 'store/App.store';
 
 extend(Canvas);
+
+const UpdateCamera = () => {
+    const { camera  } = useThree();
+    
+    useEffect(() => {
+        useAppStore.subscribe((value: boolean) => {
+            if (value) {
+                camera.position.set(19, 10, 10);
+                camera.lookAt(0, -20, 0);
+            } else {
+                camera.position.set(-20, 0, 0);
+                camera.lookAt(0, 0, 0);
+            }
+        }, state => state.isOnProjects);
+    }, []); 
+
+    return null; 
+}
 
 export type BackGroundProps = {
     cameraPosition?: [number, number, number],
@@ -35,8 +53,6 @@ const BackGround: React.FC<BackGroundProps> = (props) => {
             >
                 {props.children}
                 {props.axeshelper && <axesHelper args={[10]} />}
-
-
                 <Orbit
                     isOrbitControlsEnabled={props.isOrbitControls}
                     enableZoom={props.eneableZoom}
@@ -44,10 +60,9 @@ const BackGround: React.FC<BackGroundProps> = (props) => {
                     zoomSpeed={props.zoomSpeed}
                     rotateSpeed={props.rotateSpeed}
                 />
-
+                <UpdateCamera />
             </Canvas>
         </Suspense>
-
     </div>
 }
 

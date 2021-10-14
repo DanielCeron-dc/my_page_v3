@@ -4,7 +4,7 @@ import React from 'react';
 
 const FloatingKnowledge:React.FC = () => {
     
-    return <BackGround width={"100%"} height={"100%"} cameraPosition={[-20, 0, 0]} eneableZoom={true}>
+    return <>
         <SpriteText position={[0, 0, 11]} fontSize={100} color="#00d6b9">
             Typescript
         </SpriteText>
@@ -41,6 +41,6 @@ const FloatingKnowledge:React.FC = () => {
         <SpriteText position={[-5, -7, 5]} fontSize={100} color="#00d6b9">
             React-Context
         </SpriteText>
-    </BackGround>
+    </>
 }
 export default FloatingKnowledge;

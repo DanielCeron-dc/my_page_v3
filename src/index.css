@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -16,8 +18,8 @@ code {
 :root {
     --color1: #201F1F; 
     --color1-dark: rgb(33, 34, 37);
-    --color2: #00d6b9; /* navbars */
-    --color2-dark: #03a58f;
+    --color2: #009e89; /* navbars */
+    --color2-dark: rgb(1, 134, 117);
     --color3: rgb(116, 53, 53);
     --color3-dark: #29446e;
     --color4: #FF6F61;
@@ -30,4 +32,22 @@ code {
     --warning-dark: #b46f00;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color1);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color1-dark);
+}
