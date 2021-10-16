@@ -1,6 +1,6 @@
 .SubContent {
     position: relative;
-    width: 30vw;
+    width: 28vw;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -11,9 +11,8 @@
 }
 
 .scrollDownButton{
-    position: absolute;
-    bottom: 2rem;
-    right: 0px;
+    margin:   2rem 0.5rem;
+    box-sizing: border-box;
     height: 50px; 
     z-index: 400;
     border-color: var(--color1);
@@ -30,9 +29,8 @@
 }
 
 .scrollUpButton{
-    position: absolute;
-    top: 2rem;
-    right: 0px;
+    margin:  2rem 0.5rem;
+    box-sizing: border-box;
     height: 50px; 
     z-index: 400;
     border-color: var(--color1);

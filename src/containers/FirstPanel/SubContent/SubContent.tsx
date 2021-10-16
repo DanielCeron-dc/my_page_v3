@@ -53,20 +53,20 @@ const SubContent:React.FC = () => {
     }
 
 
-    return <div style={{ position: 'relative' }}>
-        <Button className={classes.scrollUpButton} onClick ={handleScrollUp}>
-            <EastSvg className={classes.svg} />
-        </Button>
-        <Button className={classes.scrollDownButton} onClick ={handleScrollDown}>
-            <EastSvg className ={classes.svg} />
-        </Button> 
-        <div className={classes.SubContent} ref ={divRef}>
-        
-        <div style={{ direction: 'ltr'}}>
-            <ProjectsSubSection/>
+    return <div style={{ position: 'relative', display: 'flex', width: '30vw'}}>
+        <div className={classes.SubContent} ref ={divRef} style ={{width: '30rem'}}>
+            <div style={{ direction: 'ltr', width: '100%'}}>
+                <ProjectsSubSection/>
+            </div>
         </div>
-    </div>
-    
+        <div style ={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <Button className={classes.scrollUpButton} onClick={handleScrollUp}>
+                <EastSvg className={classes.svg} />
+            </Button>
+            <Button className={classes.scrollDownButton} onClick={handleScrollDown}>
+                <EastSvg className={classes.svg} />
+            </Button>
+        </div>
     </div>
 }
 export default SubContent;

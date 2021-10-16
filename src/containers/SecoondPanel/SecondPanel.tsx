@@ -1,8 +1,8 @@
-import FloatingKnowledge from '3D Components/CompleteCreations/FloatingKnowledge';
+import FloatingKnowledge from '3D Components/Scenes/FloatingKnowledge';
 import Switch from 'components/forms/switch/Switch';
 import React from 'react';
 import classes from './SecondPanel.module.css';
-import ProjectsScene from '3D Components/CompleteCreations/ProjectsScene';
+import ProjectsScene from '3D Components/Scenes/ProjectsScene';
 import BackGround from '3D Components/BackGround/BackGround';
 import { useAppStore } from 'store/App.store';
 

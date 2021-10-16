@@ -10,7 +10,7 @@ interface IAppState {
 }
 
 export const useAppStore = create<IAppState>((set) => ({
-    isOnProjects: false,
+    isOnProjects: true,
     setIsOnProjects: (isOnProjects: boolean) => set((state) => ({ ...state, isOnProjects })),
     isexpandedInfo: false,
     setExpandedInfo: (isexpandedInfo: boolean) => set((state) => ({ ...state, isexpandedInfo })),

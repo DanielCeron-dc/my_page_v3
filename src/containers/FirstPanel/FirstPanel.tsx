@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import classes from './FirstPanel.module.css';
 import { ReactComponent as EastSvg } from "assets/svg/east.svg";
 import { useAppStore } from 'store/App.store';

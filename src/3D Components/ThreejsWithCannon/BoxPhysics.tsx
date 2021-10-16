@@ -1,26 +1,24 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useBox } from "@react-three/cannon";
 import { usePhysicsBoxesStore } from "store/PhysicsBoxes.store";
 import * as THREE from "three";
 import { Vector3 } from "three";
 
 import { getRandomInt } from "../../tools/mathTools";
-import { useLoader } from "@react-three/fiber";
-
-import { projects } from "tools/informationProjects";
 import { useAppStore } from "store/App.store";
 
 interface BoxPhysicsProps {
     id: number;
+    texture: THREE.Texture | undefined; 
 }
 
+
 const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
+    const { setExpandedInfo, setSelectedProject } = useAppStore();
 
 
-    const texture = useLoader(THREE.TextureLoader, projects[props.id].img);
-    const {setExpandedInfo, setSelectedProject} = useAppStore(); 
 
-
+    
     const [ref, api] = useBox(() => ({
         mass: 1,
         position: [getRandomInt(13), 15 + getRandomInt(15), getRandomInt(13)],
@@ -44,16 +42,18 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
 
     }, [api, props.id]);
 
-    return <mesh ref={ref} castShadow receiveShadow
-        onClick={() => {
-            setExpandedInfo(true);
-            setSelectedProject(props.id);
-            //setYProjectPosition((props.id*384)  -100);
-        }}
-    >
-        <boxBufferGeometry args={[3, 3, 3]} />
-        <meshBasicMaterial map={texture} />
-    </mesh>
+
+    return <Suspense fallback = {null} >
+        <mesh ref={ref} castShadow receiveShadow
+            onClick={() => {
+                setExpandedInfo(true);
+                setSelectedProject(props.id);
+            }}
+        >
+            <boxBufferGeometry args={[3, 3, 3]} />
+            <meshBasicMaterial map={props.texture} attach = "material"  />
+        </mesh>
+    </Suspense>
 }
 
 export default React.memo(BoxPhysics);

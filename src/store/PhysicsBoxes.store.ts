@@ -1,4 +1,5 @@
 import create from "zustand";
+import * as THREE from "three";
 import {projects} from "../tools/informationProjects";
 
 interface IState {
@@ -7,13 +8,15 @@ interface IState {
     dragging: number;
     setPosition: (id: number, positions: [number, number, number]) => void;
     setDragging: (id: number, dragging: boolean) => void;
+    boxes: JSX.Element[];
+    setBoxes: (boxes: JSX.Element[]) => void;
 }
 
-const boxes: number = projects.length;
+const projectsLength: number = projects.length;
 
 export const usePhysicsBoxesStore = create<IState>((set) => ({
-    boxesNumber: boxes,
-    positions: new Array(boxes).fill([Math.random() * 100, 30, Math.random() * 100]),
+    boxesNumber: projectsLength,
+    positions: new Array(projectsLength).fill([Math.random() * 100, 30, Math.random() * 100]),
     dragging: -1,
     setPosition: (id: number, newpositions: [number, number, number]) => {
         set((state) => {
@@ -25,7 +28,9 @@ export const usePhysicsBoxesStore = create<IState>((set) => ({
     setDragging: (id: number, prmDragging: boolean) => {
         set((state) => {
             let dragging = prmDragging ? id : -1;
-            return { ...state, dragging} as IState;
+            return { ...state, dragging } as IState;
         });
-    }
+    },
+    boxes: [],
+    setBoxes: (boxes: JSX.Element[]) => { set({ boxes }) }
 }));

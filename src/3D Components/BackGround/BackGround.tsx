@@ -1,8 +1,8 @@
 import React, { Suspense, useEffect } from 'react';
 import { Canvas, extend, useThree } from "@react-three/fiber";
 import Orbit from '../Controls/Orbit';
-import Spinner from 'components/ui/Spinner/Spinner';
 import { useAppStore } from 'store/App.store';
+import Loader from 'components/Loader/Loader';
 
 extend(Canvas);
 
@@ -19,7 +19,7 @@ const UpdateCamera = () => {
                 camera.lookAt(0, 0, 0);
             }
         }, state => state.isOnProjects);
-    }, []); 
+    }, [camera]); 
 
     return null; 
 }
@@ -45,7 +45,7 @@ export type BackGroundProps = {
 **/
 const BackGround: React.FC<BackGroundProps> = (props) => {
     return <div style={{ height: props.height ?? '100vh', width: props.width ?? '100vw', display: props.display }}>
-        <Suspense fallback={Spinner}>
+        <Suspense fallback={<Loader/>}>
             <Canvas
                 style={{ background: props.backGroundColor ?? 'rgba(0,0,0,0)' }}
                 shadows

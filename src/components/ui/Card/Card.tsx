@@ -15,15 +15,15 @@ type CardProps = {
 const Card: React.FC<CardProps> = (props) => {
     const [cardSelected, setCardSelected] = useState(false);
     const { selectedProject } = useAppStore();
-
+    const {position } = props;
 
     useEffect(() => {
-        if (selectedProject === props.position) {
+        if (selectedProject === position) {
             setCardSelected(true);
         } else {
             setCardSelected(false);
         }
-    }, [selectedProject])
+    }, [selectedProject, position])
 
 
     

@@ -1,4 +1,3 @@
-import BackGround from '3D Components/BackGround/BackGround';
 import SpriteText from '3D Components/Text/SpriteText';
 import React from 'react';
 
