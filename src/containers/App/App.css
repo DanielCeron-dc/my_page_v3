@@ -6,16 +6,6 @@
   overflow: hidden;
   background-color:var(--color1); 
   background-image: url("../../assets/textures/dark-brick-wall.png");
-
-}
-
-@media screen and (max-width: 1200px) {
-  .App {
-    height: auto;
-    overflow: auto;
-    flex-direction: column;
-  }
-
 }
 
 
