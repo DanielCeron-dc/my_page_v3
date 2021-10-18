@@ -14,10 +14,13 @@ const LoadingScreen:React.FC = () => {
         height: '100vh',
         backgroundColor: 'var(--color1)',
         backgroundImage: `url(${textureBack})`,
-        display: 'grid',
-        placeItems: 'center'
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     }}>
         <Loader />
+        <h1 style = {{color: 'white'}}>Si no tienes tarjeta grafica decente esta pagina puede ir mal</h1>
     </div>
 }
 export default LoadingScreen;

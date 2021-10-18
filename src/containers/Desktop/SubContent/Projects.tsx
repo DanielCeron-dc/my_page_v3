@@ -1,11 +1,11 @@
 
 import React, { useEffect } from 'react';
 import { useAppStore } from 'store/App.store';
-import classes from './SubContent.module.css';
+import classes from './Projects.module.css';
 import { ReactComponent as EastSvg } from "assets/svg/east.svg";
 import Button from 'components/forms/Button/Button';
 
-import ProjectsSubSection from 'components/ProjectsSubSection/ProjectsSubSection';
+import ProjectsCards from 'components/ProjectsCards/ProjectsCards';
 
 const SubContent:React.FC = () => {
     
@@ -53,10 +53,10 @@ const SubContent:React.FC = () => {
     }
 
 
-    return <div style={{ position: 'relative', display: 'flex', width: '30vw'}}>
-        <div className={classes.SubContent} ref ={divRef} style ={{width: '30rem'}}>
-            <div style={{ direction: 'ltr', width: '100%'}}>
-                <ProjectsSubSection/>
+    return <div style={{ position: 'relative', display: 'flex', width: '30vw', justifyContent: 'flex-end'}}>
+        <div className={classes.projectsCards} ref ={divRef} >
+            <div style={{ direction: 'ltr', width: '100%', flexWrap: 'wrap', display: 'flex', flexDirection: 'row-reverse'}}>
+                <ProjectsCards/>
             </div>
         </div>
         <div style ={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>

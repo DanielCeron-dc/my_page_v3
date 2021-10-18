@@ -2,11 +2,7 @@ import Card from 'components/ui/Card/Card';
 import React from 'react';
 import { projects } from 'tools/informationProjects';
 
-type ProjectsSubSectionProps = {
-    
-};
-
-const ProjectsSubSection:React.FC<ProjectsSubSectionProps> = () => {
+const ProjectsCards:React.FC = () => {
     
     return <>
         {projects.map((project, index) => {
@@ -23,4 +19,4 @@ const ProjectsSubSection:React.FC<ProjectsSubSectionProps> = () => {
     </>
     
 }
-export default ProjectsSubSection;
+export default ProjectsCards;

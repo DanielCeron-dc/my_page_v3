@@ -20,7 +20,6 @@ const UpdateCamera = () => {
             }
         }, state => state.isOnProjects);
     }, [camera]); 
-
     return null; 
 }
 

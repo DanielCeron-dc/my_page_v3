@@ -9,6 +9,16 @@
 
 }
 
+@media screen and (max-width: 1200px) {
+  .App {
+    height: auto;
+    overflow: auto;
+    flex-direction: column;
+  }
+
+}
+
+
 .img {
   width: 100vw;
   height: 100vh;

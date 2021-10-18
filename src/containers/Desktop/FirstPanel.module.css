@@ -1,6 +1,5 @@
 .firstPanel {
     display: flex;
-    width: 70vw; 
     height: 100vh; 
     border: none;
     position: absolute; 
@@ -8,7 +7,10 @@
     z-index: 100;
     transform: translate(-30vw, 0);
     transition: all ease-in-out 0.5s;
-    
+}
+
+.firstPanel div:first-child {
+    position: relative;
 }
 
 .firstPanel.expanded {
@@ -37,9 +39,8 @@
 .extendButton.expanded {
     transform: rotate(180deg) translate(19.5rem, 0);
     padding: 0;
-
+    right: -21rem;
 }
-
 
 .extendButton:hover.expanded {
     transform: rotate(180deg) translate(19.5rem, 0);
@@ -75,44 +76,19 @@
     box-sizing: border-box;
     transition: all 0.5s ease-in-out;
     border: none;
-}
-
-
-
-.content .h1 {
-    color: var(--color1);
-    font-size:  3em;
-    font-weight: bold;
-    padding: 0;
-    margin: 0 2rem 0 0;
+    justify-content: space-evenly;
 }
 
 
 .content__main {
     box-sizing: border-box;
-    padding: 2rem 2rem 2rem 3rem;
+    padding: 2rem 2rem 2rem 2rem;
     position: relative;
     display: flex;
     width: 40vw;
-    margin: 0 0 0 auto;
+    margin: 0;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 
-
-.blackBackground{
-    padding: 1rem;
-    background-color: var(--color1);
-    border-radius: 2rem;
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 0 2rem 0 0;
-    box-shadow: 1rem 0.5rem 1rem rgba(0,0,0,0.5);
-}
-
-.blackBackground img{
-    width: 6rem;
-    height: 6rem;
-}

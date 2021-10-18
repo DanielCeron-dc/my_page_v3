@@ -27,7 +27,6 @@ const PhysicsPlane: React.FC<IProps> = (props) => {
             thickness={0}
             emissive={new THREE.Color("black")}
             emissiveIntensity={1}
-
             transparent={props.transparent}
             opacity={0}
         />

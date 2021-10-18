@@ -1,7 +1,7 @@
 import FloatingKnowledge from '3D Components/Scenes/FloatingKnowledge';
 import Switch from 'components/forms/switch/Switch';
 import React from 'react';
-import classes from './SecondPanel.module.css';
+import classes from './ThreeDPanel.module.css';
 import ProjectsScene from '3D Components/Scenes/ProjectsScene';
 import BackGround from '3D Components/BackGround/BackGround';
 import { useAppStore } from 'store/App.store';
@@ -9,10 +9,9 @@ import { useAppStore } from 'store/App.store';
 
 import Email from 'components/ui/Email/Email';
 
-
 const SecondPanel: React.FC = () => {
 
-    const {isOnProjects, setIsOnProjects, setExpandedInfo } = useAppStore();
+    const {isOnProjects, setIsOnProjects, setIsExpanded } = useAppStore();
     
     return <div className={classes.secondPanel}>
         <BackGround
@@ -35,7 +34,7 @@ const SecondPanel: React.FC = () => {
                 document.documentElement.style.setProperty('--color2', themeColor);
                 document.documentElement.style.setProperty('--color2-dark', themeColorDark);
                 setIsOnProjects(!isOptionLeft);
-                setExpandedInfo(false);
+                setIsExpanded(false);
             }}
         />
         <Email />

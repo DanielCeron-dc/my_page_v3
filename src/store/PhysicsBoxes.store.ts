@@ -1,5 +1,4 @@
 import create from "zustand";
-import * as THREE from "three";
 import {projects} from "../tools/informationProjects";
 
 interface IState {
@@ -8,8 +7,6 @@ interface IState {
     dragging: number;
     setPosition: (id: number, positions: [number, number, number]) => void;
     setDragging: (id: number, dragging: boolean) => void;
-    boxes: JSX.Element[];
-    setBoxes: (boxes: JSX.Element[]) => void;
 }
 
 const projectsLength: number = projects.length;
@@ -30,7 +27,5 @@ export const usePhysicsBoxesStore = create<IState>((set) => ({
             let dragging = prmDragging ? id : -1;
             return { ...state, dragging } as IState;
         });
-    },
-    boxes: [],
-    setBoxes: (boxes: JSX.Element[]) => { set({ boxes }) }
+    }
 }));
