@@ -1,0 +1,75 @@
+.header {
+    display: flex;
+    position: sticky;
+    padding: 0 2rem 0 0;
+    box-sizing: border-box;
+    z-index: 10;
+    top: -13rem;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+    height: 20rem;
+    background-color: var(--color2);
+    background-image: url(../../../assets/textures/cubes.png);
+    width: 100%;
+}
+
+.header.recorted {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 2rem 0 0;
+    transition: all 2s ease-in;
+}
+
+.reposition {
+    transition: 0.2s linear;
+    transition-delay: 0.05s;
+    transform: translate( 400px , 95px) scale(0.7);
+}
+
+.normalPosition{
+    transition: 0.1s linear;
+    transition-delay: 0s;
+    transform: translate(0px,0px);
+}
+
+
+
+.fadeOut {
+    animation: fadeOut 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.fadeIn {
+    animation: fadeIn 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+        pointer-events: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

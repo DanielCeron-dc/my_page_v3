@@ -13,27 +13,30 @@ import PresentationInfo from 'components/PresentationInfo/PresentationInfo';
 
 const FirstPanel: React.FC = () => {
 
-    const { isOnProjects, selectedProject , isExpanded, setIsExpanded} = useAppStore();
+    const { isOnProjects, selectedProject, isExpanded, setIsExpanded } = useAppStore();
 
     useEffect(() => {
-        if(isOnProjects) setIsExpanded(true); 
-    }, [selectedProject]);
+        if (isOnProjects) setIsExpanded(true);
+    }, [selectedProject, isOnProjects, setIsExpanded]);
 
     return <div
         className={`${classes.firstPanel} ${isExpanded ? classes.expanded : ''}`}
     >
         <div>
             <section className={classes.content}>
-                <Projects/>
+                <Projects />
                 <div className={classes.content__main}>
-                    <PresentationInfo/>
-                    <ContactButtons/>
+                    <h1>
+                        Daniel Cerón
+                    </h1>
+                    <PresentationInfo />
+                    <ContactButtons />
                 </div>
             </section>
-            {isOnProjects  && <Button
+            {isOnProjects && <Button
                 className={`${classes.extendButton} ${isExpanded ? classes.expanded : ''}`}
                 onClick={() => {
-                    setIsExpanded(!isExpanded); 
+                    setIsExpanded(!isExpanded);
                 }}>
                 {!isExpanded && <>  see more about the projects </>}
                 <EastSvg className={classes.svg} />

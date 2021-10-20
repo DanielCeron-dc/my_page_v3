@@ -2,16 +2,13 @@ import React from 'react';
 import { useBox } from "@react-three/cannon";
 import * as THREE from 'three';
 
-
 interface IProps {
-
     width: number;
     height: number;
     depth: number;
     position: [number, number, number];
     color?: string;
     transparent?: boolean;
-
 }
 
 
@@ -32,4 +29,4 @@ const PhysicsPlane: React.FC<IProps> = (props) => {
         />
     </mesh>
 }
-export default PhysicsPlane;
+export default  React.memo(PhysicsPlane, () => true);

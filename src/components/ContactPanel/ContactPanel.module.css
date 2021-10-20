@@ -1,0 +1,46 @@
+.contactPanel {
+    margin: 0 0 3rem 0;
+    width: 60vw;
+    height: 70vh;
+    border: 2px solid var(--color2); 
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: var(--color2);
+}
+
+@media (max-width: 700px) {
+    .contactPanel {
+        width: 80vw;
+        margin: 0 0 5rem 0;
+    }
+
+    
+}
+
+.contactPanel h1 {
+    color: var(--color2);
+}
+
+.contactPanel button {
+    background-color: var(--color2);
+    color: var(--color1);
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contactPanel button:hover {
+    background-color: var(--color1);
+    border: 2px solid var(--color2);
+    color: var(--color2);
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}

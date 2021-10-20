@@ -3,6 +3,8 @@ import { Canvas, extend, useThree } from "@react-three/fiber";
 import Orbit from '../Controls/Orbit';
 import { useAppStore } from 'store/App.store';
 import Loader from 'components/Loader/Loader';
+import ProjectsScene from '3D Components/Scenes/ProjectsScene';
+import FloatingKnowledge from '3D Components/Scenes/FloatingKnowledge';
 
 extend(Canvas);
 
@@ -24,6 +26,7 @@ const UpdateCamera = () => {
 }
 
 export type BackGroundProps = {
+    updateCamera: boolean;
     cameraPosition?: [number, number, number],
     backGroundColor?: string,
     axeshelper?: boolean,
@@ -35,7 +38,9 @@ export type BackGroundProps = {
     autoRotate?: boolean,
     zoomSpeed?: number,
     rotateSpeed?: number,
-    display?: string
+    display?: string,
+    showProjects?: boolean,
+    pointerLock?: boolean,
 };
 
 /** 
@@ -43,14 +48,19 @@ export type BackGroundProps = {
  * it has a 3d camera and a 3d scene.
 **/
 const BackGround: React.FC<BackGroundProps> = (props) => {
-    return <div style={{ height: props.height ?? '100vh', width: props.width ?? '100vw', display: props.display }}>
+
+    useEffect(() => {
+        console.log('BackGround component mounted');
+    }); 
+
+    return <div style={{ height: props.height ?? '100vh', width: props.width ?? '100vw', display: props.display , pointerEvents: props.pointerLock ?"none" : "unset" }}>
         <Suspense fallback={<Loader/>}>
             <Canvas
                 style={{ background: props.backGroundColor ?? 'rgba(0,0,0,0)' }}
                 shadows
                 camera={{ position: props.cameraPosition }}
             >
-                {props.children}
+                {props.showProjects ? <ProjectsScene /> : <FloatingKnowledge/>}
                 {props.axeshelper && <axesHelper args={[10]} />}
                 <Orbit
                     isOrbitControlsEnabled={props.isOrbitControls}
@@ -59,11 +69,13 @@ const BackGround: React.FC<BackGroundProps> = (props) => {
                     zoomSpeed={props.zoomSpeed}
                     rotateSpeed={props.rotateSpeed}
                 />
-                <UpdateCamera />
+                {props.updateCamera &&  <UpdateCamera />}
             </Canvas>
         </Suspense>
     </div>
 }
 
 
-export default BackGround;
+export default React.memo<BackGroundProps>(BackGround, (prevProps, nextProps) => {
+    return prevProps.showProjects === nextProps.showProjects; 
+});

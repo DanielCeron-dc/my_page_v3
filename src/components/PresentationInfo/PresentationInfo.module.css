@@ -5,23 +5,23 @@
     justify-content: space-between;
 }
 
-.h1 {
-    color: var(--color1);
-    font-size:  3em;
-    font-weight: bold;
-    padding: 0;
-    margin: 0 2rem 0 0;
+@media (max-width: 1200px) {
+    .PresentationInfo {
+        flex-direction: row;
+        align-items: center;
+    }
+    
 }
 
 
 .blackBackground{
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: var(--color1);
     border-radius: 2rem;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: bold;
-    margin: 0 2rem 0 0;
+    margin: 0;
     box-shadow: 1rem 0.5rem 1rem rgba(0,0,0,0.5);
 }
 

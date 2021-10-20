@@ -12,9 +12,6 @@ const PresentationInfo: React.FC = () => {
         className={classes.PresentationInfo}
         onMouseOver={() => setOnHover(true)}
         onMouseLeave={() => setOnHover(false)}>
-        <h1 className={classes.h1}>
-            Daniel Cerón
-        </h1>
         <div className={classes.blackBackground}>
             <img src={onHover ? perfilgif : perfilImg} alt="" />
             <p>

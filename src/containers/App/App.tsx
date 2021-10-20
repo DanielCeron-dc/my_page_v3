@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react';
-
+import React, { useEffect, useState, Suspense } from 'react';
 import './App.css';
 
-import FirstPanel from '../Desktop/FirstPanel';
-import ThreeDPanel from 'containers/ThreeDPanel/ThreeDPanel';
 import LoadingScreen from 'components/LoadingScreen/LoadingScreen';
-import Tablet from '../tablet/Tablet';
-
 import { useAppStore } from 'store/App.store';
 import useWindow from 'hooks/useWindowDimensions';
-import Mobile from 'containers/mobile/Mobile';
+
+
+const Tablet = React.lazy(() => import('../tablet/Tablet'));
+const Mobile = React.lazy(() => import('../mobile/Mobile'));
+const Desktop = React.lazy(() => import('../Desktop/Desktop'));
 
 function App() {
 
   const [loaded, setLoaded] = useState(false);
   const { setIsOnProjects } = useAppStore();
-  
   const { isTablet, isMobile, isDesktop} = useWindow(); 
 
   useEffect(() => { 
@@ -27,17 +25,22 @@ function App() {
       setIsOnProjects(false);
       setLoaded(true);
     }, 7000);
-  }, []);
+  }, [setIsOnProjects]);
 
   return (
-    <div className="App">
-      {isDesktop && <>
-        {!loaded && <LoadingScreen />}
-        <FirstPanel />
-        <ThreeDPanel />
-      </>}
-      {isTablet && <Tablet />}
-      {isMobile && <Mobile />}
+    <div className="App" id="App" onScroll={e => {
+      e.preventDefault();
+      const y = e.currentTarget.scrollHeight;
+      console.log(e.currentTarget);
+      console.log(y);
+
+    }}>
+      {!loaded && <LoadingScreen />}
+      <Suspense fallback={<LoadingScreen />}>
+        {isDesktop && <Desktop/>}
+        {isTablet && <Tablet />}
+        {isMobile && <Mobile />}
+      </Suspense>
     </div>
   );
 }

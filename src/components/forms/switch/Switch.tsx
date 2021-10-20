@@ -2,7 +2,8 @@ import React from 'react';
 import classes from './Switch.module.css';
 
 
-type SwitchProps = { 
+type SwitchProps = {
+    style?: React.CSSProperties;
     optionLeft: string,
     optionRight: string,
     isLeft: boolean,
@@ -11,7 +12,7 @@ type SwitchProps = {
 
 const Switch: React.FC<SwitchProps> = (props) => {
  
-    return <button className={classes.switch} style={{ backgroundColor: props.isLeft ? 'transparent' : 'var(--color2)' }}
+    return <button className={classes.switch} style={{ backgroundColor: props.isLeft ? 'transparent' : 'var(--color2)' , ...props.style}}
         onClick={() => props.onSwitch(!props.isLeft)}
     >
         <div className={`${classes.switch__option}  ${classes.cut} `}  style={{backgroundColor: props.isLeft ? 'var(--color2)': 'var(--color1)'}}>

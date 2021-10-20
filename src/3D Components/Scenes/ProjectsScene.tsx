@@ -8,8 +8,6 @@ import Loader from 'components/Loader/Loader';
 
 
 const ProjectsScene: React.FC = () => {
-
-
     return <Suspense fallback={<Loader />}>
             <Physics>
             <PointLight position={[0, 12, 0]} intensity={6} colorHexadecimal={"#cc8800"} />
@@ -24,4 +22,4 @@ const ProjectsScene: React.FC = () => {
             </Physics>
         </Suspense>
 }
-export default ProjectsScene;
+export default React.memo(ProjectsScene, () => true);
