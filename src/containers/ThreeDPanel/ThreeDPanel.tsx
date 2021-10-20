@@ -20,7 +20,6 @@ const SecondPanel: React.FC = () => {
             cameraPosition={[-20, 0, 0]}
             eneableZoom={false}
             autoRotate={true}
-            rotateSpeed={isOnProjects ? 0.5 : 3}
             isOrbitControls={!isOnProjects}
             showProjects={isOnProjects}
         />

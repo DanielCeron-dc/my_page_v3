@@ -12,6 +12,13 @@
   .App {
     flex-direction: column;
   }
+}
+
+@media screen and (min-width: 1200px) {
+  .App {
+    height: 100vh;
+    overflow: hidden;
+  }
 
   
 }

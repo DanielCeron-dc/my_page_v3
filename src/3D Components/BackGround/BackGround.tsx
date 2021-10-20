@@ -67,7 +67,7 @@ const BackGround: React.FC<BackGroundProps> = (props) => {
                     enableZoom={props.eneableZoom}
                     autoRotate={props.autoRotate}
                     zoomSpeed={props.zoomSpeed}
-                    rotateSpeed={props.rotateSpeed}
+                    rotateSpeed={props.showProjects ? 0.5 : 3}
                 />
                 {props.updateCamera &&  <UpdateCamera />}
             </Canvas>

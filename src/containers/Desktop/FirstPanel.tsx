@@ -16,8 +16,8 @@ const FirstPanel: React.FC = () => {
     const { isOnProjects, selectedProject, isExpanded, setIsExpanded } = useAppStore();
 
     useEffect(() => {
-        if (isOnProjects) setIsExpanded(true);
-    }, [selectedProject, isOnProjects, setIsExpanded]);
+        if (isExpanded) setIsExpanded(true);
+    }, [selectedProject, isExpanded, setIsExpanded]);
 
     return <div
         className={`${classes.firstPanel} ${isExpanded ? classes.expanded : ''}`}
