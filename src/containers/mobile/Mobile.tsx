@@ -1,9 +1,10 @@
-import BackGround from '3D Components/BackGround/BackGround';
+import React, { CSSProperties, useEffect, useState } from 'react';
+
+import Header from './Header/Header';
+import CustomCanvas from '3D Components/CustomCanvas/CustomCanvas';
 import ContactPanel from 'components/ContactPanel/ContactPanel';
 import MiniNavegatorControls from 'components/MiniNavegatorControls/MiniNavegatorControls';
 import ProjectsCards from 'components/ProjectsCards/ProjectsCards';
-import React, { CSSProperties, useEffect, useState } from 'react';
-import Header from './Header/Header';
 
 
 const style: CSSProperties = {
@@ -27,6 +28,21 @@ const Mobile: React.FC = () => {
             top: pixel,
             behavior: 'smooth'
         })
+    }
+
+    const selectSectionHandler = (section: number) => {
+        setSectionSelected(section);
+        switch (section) {
+            case 0:
+                scrollTo(0);
+                break;
+            case 1:
+                scrollTo(1400);
+                break;
+            case 2:
+                scrollTo(4000);
+                break;
+        }
     }
 
     const handleOnScroll = () => {
@@ -54,6 +70,7 @@ const Mobile: React.FC = () => {
 
 
     return <div style={style}>
+
         <Header />
 
         {verticalSpace}
@@ -63,7 +80,7 @@ const Mobile: React.FC = () => {
             I have worked with a wide range of technologies.
         </h2>
 
-        <BackGround
+        <CustomCanvas
             cameraPosition={[-20, 0, 0]}
             updateCamera={false}
             width={"100vw"}
@@ -77,9 +94,10 @@ const Mobile: React.FC = () => {
         />
 
         {verticalSpace}
+
         <h1 style={{ color: 'white', }}> Projects </h1>
 
-        <BackGround
+        <CustomCanvas
             cameraPosition={[19, 10, 10]}
             updateCamera={false}
             width={"100vw"}
@@ -91,6 +109,7 @@ const Mobile: React.FC = () => {
             isOrbitControls={false}
             pointerLock
         />
+
         <h2 style={TextStyle}>
             I have made a lot of projects,
             some of them are listed here.
@@ -99,25 +118,15 @@ const Mobile: React.FC = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <ProjectsCards />
         </div>
+
         <MiniNavegatorControls
             style={{ position: 'fixed', left: 0, bottom: 0 }}
             selected={sectionSelected}
-            onSelect={(index) => {
-                setSectionSelected(index);
-                switch (index) {
-                    case 0:
-                        scrollTo(0);
-                        break;
-                    case 1:
-                        scrollTo(1400);
-                        break;
-                    case 2:
-                        scrollTo(4000);
-                        break;
-                }
-            }}
+            onSelect={selectSectionHandler}
         />
+
         {verticalSpace}
+
         <ContactPanel />
     </div>
 }

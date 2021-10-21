@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import BackGround from '3D Components/BackGround/BackGround';
+import BackGround from '3D Components/CustomCanvas/CustomCanvas';
 import ProjectsCards from 'components/ProjectsCards/ProjectsCards';
 import React, { CSSProperties } from 'react';
 import Header from './Header/Header';

@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ThreeDPanel.module.css';
 
 import Switch from 'components/forms/switch/Switch';
-import BackGround from '3D Components/BackGround/BackGround';
+import BackGround from '3D Components/CustomCanvas/CustomCanvas';
 import { useAppStore } from 'store/App.store';
 
 

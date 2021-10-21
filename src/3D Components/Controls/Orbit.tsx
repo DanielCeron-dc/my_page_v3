@@ -47,7 +47,9 @@ const Orbit: React.FC<OrbitControlsProps> = (props) => {
         autoRotateSpeed={props.rotateSpeed}
     />
 }
-export default React.memo(Orbit, () => true);
+export default React.memo<OrbitControlsProps>(Orbit, (prevProps, nextProps) => {
+    return prevProps.rotateSpeed === nextProps.rotateSpeed; 
+});
 
 
 
