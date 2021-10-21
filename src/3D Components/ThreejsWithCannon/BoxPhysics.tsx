@@ -14,7 +14,7 @@ interface BoxPhysicsProps {
 }
 
 const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
-    const { setSelectedProject, setIsExpanded} = useAppStore();
+    const { setSelectedProject, setIsExpanded, isOnProjects} = useAppStore();
     const texture = useLoader(THREE.TextureLoader, props.img);
 
     const [ref, api] = useBox(() => ({
@@ -46,6 +46,7 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
             castShadow
             receiveShadow
             onClick={() => {
+                if (!isOnProjects) return; 
                 setSelectedProject(props.id);
                 setIsExpanded(true); 
             }}
