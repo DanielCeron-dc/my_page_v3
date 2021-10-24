@@ -1,22 +1,22 @@
 import Card from 'components/ui/Card/Card';
 import React from 'react';
-import { projects } from 'tools/informationProjects';
+import { useAppStore } from 'store/App.store';
+
 
 const ProjectsCards:React.FC = () => {
-    
-    return <>
+    const {projects , isLoadingProjects} = useAppStore(); 
+    return !isLoadingProjects ? <>
         {projects.map((project, index) => {
             return <Card
                 position={index}
                 key={index}
-                title={project.name}
+                title={project.title}
                 description={project.description}
-                img={project.img}
+                img={project.imgLink}
                 labels={project.labels}
                 link={project.link}
             />
         })}
-    </>
-    
+    </> : null; 
 }
 export default ProjectsCards;

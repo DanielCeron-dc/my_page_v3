@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import textureBack from 'assets/textures/dark-brick-wall.png'; 
 import Loader from 'components/Loader/Loader';
+import { useAppStore } from 'store/App.store';
 
 
 const LoadingScreen:React.FC = () => {
+    const [loaded, setLoaded] = useState(false);
+    const { setIsOnProjects } = useAppStore(); 
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsOnProjects(true);
+        }, 2000);
+
+        setTimeout(() => {
+            setIsOnProjects(false);
+            setLoaded(true);
+        }, 7000);
+    }, [setIsOnProjects]);
     
-    return <div style={{
+    return !loaded ? <div style={{
         position: 'fixed',
         zIndex: 9999,
         top: '0',
@@ -20,6 +34,6 @@ const LoadingScreen:React.FC = () => {
         alignItems: 'center',
     }}>
         <Loader />
-    </div>
+    </div> : null; 
 }
 export default LoadingScreen;

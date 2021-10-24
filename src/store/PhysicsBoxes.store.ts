@@ -1,20 +1,25 @@
 import create from "zustand";
-import {projects} from "../tools/informationProjects";
 
 interface IState {
     boxesNumber: number;
     positions: [number, number, number][];
     dragging: number;
+    initializePositions: () => void;
     setPosition: (id: number, positions: [number, number, number]) => void;
     setDragging: (id: number, dragging: boolean) => void;
 }
 
-const projectsLength: number = projects.length;
-
 export const usePhysicsBoxesStore = create<IState>((set) => ({
-    boxesNumber: projectsLength,
-    positions: new Array(projectsLength).fill([Math.random() * 100, 30, Math.random() * 100]),
+    boxesNumber: 0,
+    positions: [],
     dragging: -1,
+    initializePositions: () => {
+        set((state) => ({
+            ...state,
+            boxesNumber: 4,
+            positions: new Array(4).fill([Math.random() * 100, 30, Math.random() * 100]),
+        }));
+    }, 
     setPosition: (id: number, newpositions: [number, number, number]) => {
         set((state) => {
             let positionsCopy = [...state.positions];
