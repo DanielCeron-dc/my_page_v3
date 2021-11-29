@@ -38,7 +38,6 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
                 api.mass?.set(1);
             }
         }, (state) => state.dragging === props.index);
-
     }, [api, props.index]);
 
 
@@ -48,7 +47,6 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
             receiveShadow
             onClick={() => {
                 setSelectedProject(props.id);
-                setIsExpanded(true); 
             }}
         >
             <boxBufferGeometry args={[3, 3, 3]} />

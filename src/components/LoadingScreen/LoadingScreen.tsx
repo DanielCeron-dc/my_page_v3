@@ -11,12 +11,12 @@ const LoadingScreen:React.FC = () => {
     useEffect(() => {
         setTimeout(() => {
             setIsOnProjects(true);
-        }, 2000);
+        }, 1000);
 
         setTimeout(() => {
             setIsOnProjects(false);
             setLoaded(true);
-        }, 5000);
+        }, 3000);
     }, [setIsOnProjects]);
     
     return !loaded ? <div style={{

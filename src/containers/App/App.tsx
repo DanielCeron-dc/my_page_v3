@@ -19,13 +19,9 @@ function App() {
   const {  fetchProjects , setIsOnProjects} = useAppStore();
   const { initializePositions } = usePhysicsBoxesStore(); 
 
-  const initializeApp = async() => {
+  useEffect(() => {
     fetchProjects();
     initializePositions();
-  }
-
-  useEffect(() => {
-    initializeApp(); 
   }, []);
   
   useEffect(() => {

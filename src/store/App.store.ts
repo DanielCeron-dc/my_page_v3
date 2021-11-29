@@ -29,18 +29,14 @@ export const useAppStore = create<IAppState>((set) => ({
     setIsOnProjects: (isOnProjects: boolean) => set((state) => ({ ...state, isOnProjects })),
     setIsExpanded: (isExpanded: boolean) => set((state) => ({ ...state, isExpanded})),
     setSelectedProject: (selectedProjectId: string) => {
-
-        
         set((state) => {
-
             if (!state.isOnProjects) {
-                return { ...state}
+                return { ...state, selectedProject: -1, isExpanded: false };
             }
-
+            console.log(state.isOnProjects);
             const selectedProject = state.projects.findIndex(project => {
                 return project._id === selectedProjectId;
             });
-            
             return { ...state, selectedProject };
         })
     },
