@@ -9,12 +9,13 @@ import { getRandomInt } from "../../tools/mathTools";
 import { useAppStore } from "store/App.store";
 
 interface BoxPhysicsProps {
-    id: number;
+    index: number;
+    id: string; 
     img: string;
 }
 
 const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
-    const { setSelectedProject, setIsExpanded, isOnProjects} = useAppStore();
+    const { setSelectedProject, setIsExpanded} = useAppStore();
     const texture = useLoader(THREE.TextureLoader, props.img);
 
     const [ref, api] = useBox(() => ({
@@ -28,7 +29,7 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
         usePhysicsBoxesStore.subscribe((newPosition: [number, number, number]) => {
             position = newPosition;
             api.position?.copy(new Vector3(position[0], position[1], position[2]));
-        }, (state) => state.positions[props.id]);
+        }, (state) => state.positions[props.index]);
 
         usePhysicsBoxesStore.subscribe((value: boolean) => {
             if (value) {
@@ -36,9 +37,9 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
             } else {
                 api.mass?.set(1);
             }
-        }, (state) => state.dragging === props.id);
+        }, (state) => state.dragging === props.index);
 
-    }, [api, props.id]);
+    }, [api, props.index]);
 
 
     return <Suspense fallback = {null} >
@@ -46,7 +47,6 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
             castShadow
             receiveShadow
             onClick={() => {
-                if (!isOnProjects) return; 
                 setSelectedProject(props.id);
                 setIsExpanded(true); 
             }}

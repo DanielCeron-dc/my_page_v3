@@ -41,7 +41,6 @@ export class Services {
             const projectsWithSignedUrl = await Services.convertProjectsImgToSignedUrl(projectsJson);
             return projectsWithSignedUrl;
         } catch (error) {
-            console.log(error);
             return [];
         }
     }

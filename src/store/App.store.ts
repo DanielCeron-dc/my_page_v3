@@ -12,7 +12,7 @@ interface IAppState {
     fetchProjects: () => Promise<number>;
     setIsOnProjects: (isOnProjects: boolean) => void;
     setIsExpanded: (expandedInfo: boolean) => void;
-    setSelectedProject: (selectedProject: number) => void;
+    setSelectedProject: (selectedProjectId: string) => void;
 }
 
 export const useAppStore = create<IAppState>((set) => ({
@@ -28,6 +28,21 @@ export const useAppStore = create<IAppState>((set) => ({
     },
     setIsOnProjects: (isOnProjects: boolean) => set((state) => ({ ...state, isOnProjects })),
     setIsExpanded: (isExpanded: boolean) => set((state) => ({ ...state, isExpanded})),
-    setSelectedProject: (selectedProject: number) => set((state) => ({ ...state, selectedProject })),
+    setSelectedProject: (selectedProjectId: string) => {
+
+        
+        set((state) => {
+
+            if (!state.isOnProjects) {
+                return { ...state}
+            }
+
+            const selectedProject = state.projects.findIndex(project => {
+                return project._id === selectedProjectId;
+            });
+            
+            return { ...state, selectedProject };
+        })
+    },
 }));
 

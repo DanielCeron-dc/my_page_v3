@@ -16,7 +16,7 @@ const LoadingScreen:React.FC = () => {
         setTimeout(() => {
             setIsOnProjects(false);
             setLoaded(true);
-        }, 7000);
+        }, 5000);
     }, [setIsOnProjects]);
     
     return !loaded ? <div style={{

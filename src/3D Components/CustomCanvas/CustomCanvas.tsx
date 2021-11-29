@@ -50,11 +50,6 @@ export type CustomCanvasProps = {
  * it has a 3d camera and a 3d scene.
 **/
 const CustomCanvas: React.FC<CustomCanvasProps> = (props) => {
-
-    useEffect(() => {
-        console.log('CustomCanvas component mounted');
-    }); 
-
     return <div style={{ height: props.height ?? '100vh', width: props.width ?? '100vw', display: props.display , pointerEvents: props.pointerLock ?"none" : "unset" }}>
         <Suspense fallback={<Loader/>}>
             <Canvas

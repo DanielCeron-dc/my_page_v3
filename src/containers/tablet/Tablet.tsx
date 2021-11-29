@@ -6,6 +6,7 @@ import React, { CSSProperties } from 'react';
 import Header from './Header/Header';
 import MiniNavegatorControls from 'components/MiniNavegatorControls/MiniNavegatorControls';
 import ContactPanel from 'components/ContactPanel/ContactPanel';
+import { setColor } from 'tools/setColor';
 
 const style: CSSProperties = {
     display: 'flex',
@@ -32,16 +33,13 @@ const Tablet: React.FC = () => {
 
     const handleOnScroll = () => {
         if (window.scrollY < 800) {
-            document.documentElement.style.setProperty('--color2', '#009e89');
-            document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
+            setColor('blue')
             setSectionSelected(0);
         } else if (window.scrollY > 800 && window.scrollY < 2000){
-            document.documentElement.style.setProperty('--color2', '#cc8800');
-            document.documentElement.style.setProperty('--color2-dark', '#af7500');
+            setColor('orange')
             setSectionSelected(1);
         } else {
-            document.documentElement.style.setProperty('--color2', '#f28579');
-            document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
+            setColor('pink'); 
             setSectionSelected(2);
         }
     }

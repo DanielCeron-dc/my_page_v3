@@ -33,14 +33,16 @@ const FirstPanel: React.FC = () => {
                     <ContactButtons />
                 </div>
             </section>
-            {isOnProjects && <Button
-                className={`${classes.extendButton} ${isExpanded ? classes.expanded : ''}`}
-                onClick={() => {
-                    setIsExpanded(!isExpanded);
-                }}>
-                {!isExpanded && <>  see more about the projects </>}
-                <EastSvg className={classes.svg} />
-            </Button>}
+            {isOnProjects && <div className={`${classes.base} ${isExpanded ? classes.expanded : ''}`}>
+                <Button
+                    className={`${classes.extendButton} ${isExpanded ? classes.expanded : ''}`}
+                    onClick={() => {
+                        setIsExpanded(!isExpanded);
+                    }}>
+                    {!isExpanded && <>  see more about the projects </>}
+                    <EastSvg className={classes.svg} />
+                </Button>
+            </div>}
         </div>
     </div>
 }

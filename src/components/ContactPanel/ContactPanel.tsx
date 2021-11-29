@@ -9,7 +9,6 @@ const ContactPanel:React.FC = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formdata = new FormData(event.currentTarget);
-        console.log(formdata.get('name'));
     }
 
     return <form className = {classes.contactPanel} onSubmit ={handleSubmit}>
