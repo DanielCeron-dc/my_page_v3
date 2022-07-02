@@ -1,4 +1,5 @@
 import create from "zustand";
+import {subscribeWithSelector } from 'zustand/middleware'; 
 import {projects} from "../tools/informationProjects";
 
 interface IState {
@@ -11,7 +12,7 @@ interface IState {
 
 const projectsLength: number = projects.length;
 
-export const usePhysicsBoxesStore = create<IState>((set) => ({
+export const usePhysicsBoxesStore = create<IState>()(subscribeWithSelector((set) => ({
     boxesNumber: projectsLength,
     positions: new Array(projectsLength).fill([Math.random() * 100, 30, Math.random() * 100]),
     dragging: -1,
@@ -28,4 +29,4 @@ export const usePhysicsBoxesStore = create<IState>((set) => ({
             return { ...state, dragging } as IState;
         });
     }
-}));
+})));

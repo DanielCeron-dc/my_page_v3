@@ -1,4 +1,5 @@
 import create from 'zustand';
+import {subscribeWithSelector } from 'zustand/middleware'; 
 
 interface IAppState {
     isOnProjects: boolean;
@@ -9,12 +10,12 @@ interface IAppState {
     setSelectedProject: (selectedProject: number) => void;
 }
 
-export const useAppStore = create<IAppState>((set) => ({
+export const useAppStore = create<IAppState>()(subscribeWithSelector((set) => ({
     isOnProjects: false,
     setIsOnProjects: (isOnProjects: boolean) => set((state) => ({ ...state, isOnProjects })),
     isExpanded: false,
     setIsExpanded: (isExpanded: boolean) => set((state) => ({ ...state, isExpanded})),
     selectedProject: -1,
     setSelectedProject: (selectedProject: number) => set((state) => ({ ...state, selectedProject })),
-}));
+})));
 

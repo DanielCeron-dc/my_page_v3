@@ -13,7 +13,7 @@ const Desktop = React.lazy(() => import('../Desktop/Desktop'));
 function App() {
 
   const [loaded, setLoaded] = useState(false);
-  const { setIsOnProjects } = useAppStore();
+  const { setIsOnProjects, setIsExpanded } = useAppStore();
   const { isTablet, isMobile, isDesktop} = useWindow(); 
 
   useEffect(() => { 
@@ -23,6 +23,7 @@ function App() {
 
     setTimeout(() => {
       setIsOnProjects(false);
+      setIsExpanded(false);
       setLoaded(true);
     }, 7000);
   }, [setIsOnProjects]);

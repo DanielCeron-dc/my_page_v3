@@ -25,18 +25,18 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
 
     useEffect(() => {
         let position: [number, number, number] = [0, 0, 0];
-        usePhysicsBoxesStore.subscribe((newPosition: [number, number, number]) => {
+        usePhysicsBoxesStore.subscribe( (state) => state.positions[props.id] ,(newPosition: [number, number, number]) => {
             position = newPosition;
             api.position?.copy(new Vector3(position[0], position[1], position[2]));
-        }, (state) => state.positions[props.id]);
+        });
 
-        usePhysicsBoxesStore.subscribe((value: boolean) => {
+        usePhysicsBoxesStore.subscribe((state) => state.dragging === props.id, (value: boolean) => {
             if (value) {
                 api.mass?.set(0);
             } else {
                 api.mass?.set(1);
             }
-        }, (state) => state.dragging === props.id);
+        });
 
     }, [api, props.id]);
 

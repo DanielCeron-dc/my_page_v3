@@ -12,7 +12,7 @@ const UpdateCamera = () => {
     const { camera  } = useThree();
     
     useEffect(() => {
-        useAppStore.subscribe((value: boolean) => {
+        useAppStore.subscribe(state => state.isOnProjects, (value: boolean) => {
             if (value) {
                 camera.position.set(19, 10, 10);
                 camera.lookAt(0, -20, 0);
@@ -22,7 +22,7 @@ const UpdateCamera = () => {
                 camera.lookAt(0, 0, 0);
 
             }
-        }, state => state.isOnProjects);
+        });
     }, [camera]); 
     return null; 
 }
