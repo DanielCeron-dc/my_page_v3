@@ -1,3 +1,4 @@
+import { subscribeWithSelector } from 'zustand/middleware';
 import create from "zustand";
 
 interface IState {
@@ -9,7 +10,7 @@ interface IState {
     setDragging: (id: number, dragging: boolean) => void;
 }
 
-export const usePhysicsBoxesStore = create<IState>((set) => ({
+export const usePhysicsBoxesStore = create<IState>()(subscribeWithSelector(((set) => ({
     boxesNumber: 0,
     positions: [],
     dragging: -1,
@@ -33,4 +34,4 @@ export const usePhysicsBoxesStore = create<IState>((set) => ({
             return { ...state, dragging } as IState;
         });
     }
-}));
+}))));

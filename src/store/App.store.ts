@@ -1,3 +1,4 @@
+import {subscribeWithSelector} from 'zustand/middleware'
 import create from 'zustand';
 
 import { IProject } from 'api/IProject';
@@ -15,7 +16,7 @@ interface IAppState {
     setSelectedProject: (selectedProjectId: string) => void;
 }
 
-export const useAppStore = create<IAppState>((set) => ({
+export const useAppStore = create<IAppState>()(subscribeWithSelector((set) => ({
     isOnProjects: false,
     isExpanded: false,
     selectedProject: -1,
@@ -29,16 +30,15 @@ export const useAppStore = create<IAppState>((set) => ({
     setIsOnProjects: (isOnProjects: boolean) => set((state) => ({ ...state, isOnProjects })),
     setIsExpanded: (isExpanded: boolean) => set((state) => ({ ...state, isExpanded})),
     setSelectedProject: (selectedProjectId: string) => {
-        set((state) => {
+        set((state:IAppState) => {
             if (!state.isOnProjects) {
                 return { ...state, selectedProject: -1, isExpanded: false };
             }
-            console.log(state.isOnProjects);
             const selectedProject = state.projects.findIndex(project => {
                 return project._id === selectedProjectId;
             });
             return { ...state, selectedProject };
         })
     },
-}));
+})));
 

@@ -15,7 +15,7 @@ interface BoxPhysicsProps {
 }
 
 const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
-    const { setSelectedProject, setIsExpanded} = useAppStore();
+    const { setSelectedProject } = useAppStore();
     const texture = useLoader(THREE.TextureLoader, props.img);
 
     const [ref, api] = useBox(() => ({
@@ -26,18 +26,18 @@ const BoxPhysics: React.FC<BoxPhysicsProps> = (props) => {
 
     useEffect(() => {
         let position: [number, number, number] = [0, 0, 0];
-        usePhysicsBoxesStore.subscribe((newPosition: [number, number, number]) => {
+        usePhysicsBoxesStore.subscribe((state) => state.positions[props.index], (newPosition: [number, number, number]) => {
             position = newPosition;
-            api.position?.copy(new Vector3(position[0], position[1], position[2]));
-        }, (state) => state.positions[props.index]);
+            api.position?.copy(new Vector3(position[0], position[1], position[2])); 
+        });
 
-        usePhysicsBoxesStore.subscribe((value: boolean) => {
+        usePhysicsBoxesStore.subscribe((state) => state.dragging === props.index, (value: boolean) => {
             if (value) {
                 api.mass?.set(0);
             } else {
                 api.mass?.set(1);
-            }
-        }, (state) => state.dragging === props.index);
+            } 
+        });
     }, [api, props.index]);
 
 
