@@ -11,7 +11,7 @@ export interface inputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 
 const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
     const [valid, setValid] = useState(true); //!this is just for styling purposes
-    const [isEmpty, setIsEmpty] = useState(true);  //!this is just for styling purposes
+    const [isEmpty, setIsEmpty] = useState(false);  //!this is just for styling purposes
 
     const propsToPass = { ...props, ref };
     delete propsToPass.label;
@@ -21,6 +21,7 @@ const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
     return (<div className={classes.base} style={props.style}>
         <input
             {...propsToPass}
+            disabled
             className={`${classes.input} ${!isEmpty ? classes.notEmpty : ""} `}
             onChange={(e) => {
                 const isValid = e.currentTarget.checkValidity();

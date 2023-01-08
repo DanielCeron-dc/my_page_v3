@@ -3,20 +3,22 @@ import classes from './ContactPanel.module.css';
 
 import Input from 'components/forms/Input/Input';
 import TextArea from 'components/forms/TextArea/TextArea';
+import ContactButtons from 'components/ContactButtons/ContactButtons';
 
 const ContactPanel:React.FC = () => {
     
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const formdata = new FormData(event.currentTarget);
+    const handleCopy = (e:any) => {
+        e.preventDefault();
+        const text = 'damusan21@gmail.com'; 
+        navigator.clipboard.writeText(text);
+        alert('email copied to clipboard');
     }
 
-    return <form className = {classes.contactPanel} onSubmit ={handleSubmit}>
+    return <form className = {classes.contactPanel}>
         <h1>Contact</h1>
-        <Input name = "name" label ="name"/>
-        <Input name = "email" label = "email"/>
-        <TextArea name = "message"/>
-        <button>Send</button>
+        <Input name="email" label="email" value='damusan21@gmail.com' />
+        <button onClick={handleCopy}> copy </button>
+        <ContactButtons />
     </form>
 }
 export default ContactPanel;

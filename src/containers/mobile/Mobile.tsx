@@ -120,7 +120,6 @@ const Mobile: React.FC = () => {
         </div>
 
         <MiniNavegatorControls
-            style={{ position: 'fixed', left: 0, bottom: 0 }}
             selected={sectionSelected}
             onSelect={selectSectionHandler}
         />
