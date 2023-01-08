@@ -27,28 +27,30 @@ const MiniNavegatorControls: React.FC = () => {
                 scrollTo(document.body.scrollHeight);
                 break;
         }
-        setTimeout(() => {
-            setShowTooltip(null);
-        }, 1500);
     }
 
     
     const handleOnScroll = () => {
+        let section = null;
         if (window.scrollY < 800) {
             document.documentElement.style.setProperty('--color2', '#009e89');
             document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
-            setSectionSelected(0);
-            setShowTooltip(0);
+            section = 0;
         } else if (window.scrollY >= 700 && window.scrollY < 3000) {
             document.documentElement.style.setProperty('--color2', '#cc8800');
             document.documentElement.style.setProperty('--color2-dark', '#af7500');
-            setSectionSelected(1);
-            setShowTooltip(1);
+            section = 1;
         } else {
             document.documentElement.style.setProperty('--color2', '#f28579');
             document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
-            setSectionSelected(2);
-            setShowTooltip(2);
+            section = 2;
+        }
+        if (sectionSelected !== section) {
+            setSectionSelected(section);
+            setShowTooltip(section);
+            setTimeout(() => {
+                setShowTooltip(null);
+            }, 1500);
         }
     }
 
