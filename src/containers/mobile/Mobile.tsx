@@ -20,57 +20,8 @@ const TextStyle: CSSProperties = { color: 'white', maxWidth: '20rem', margin: '0
 
 const Mobile: React.FC = () => {
 
-    const [sectionSelected, setSectionSelected] = useState(0);
-
-
-    const scrollTo = (pixel: number) => {
-        window.scrollTo({
-            top: pixel,
-            behavior: 'smooth'
-        })
-    }
-
-    const selectSectionHandler = (section: number) => {
-        setSectionSelected(section);
-        switch (section) {
-            case 0:
-                scrollTo(0);
-                break;
-            case 1:
-                scrollTo(1400);
-                break;
-            case 2:
-                scrollTo(4000);
-                break;
-        }
-    }
-
-    const handleOnScroll = () => {
-        if (window.scrollY < 800) {
-            document.documentElement.style.setProperty('--color2', '#009e89');
-            document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
-            setSectionSelected(0);
-        } else if (window.scrollY >= 700 && window.scrollY < 3000) {
-            document.documentElement.style.setProperty('--color2', '#cc8800');
-            document.documentElement.style.setProperty('--color2-dark', '#af7500');
-            setSectionSelected(1);
-        } else {
-            document.documentElement.style.setProperty('--color2', '#f28579');
-            document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
-            setSectionSelected(2);
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleOnScroll);
-        return () => {
-            return window.removeEventListener('scroll', handleOnScroll);
-        }
-    }, []);
-
-
     return <div style={style}>
-
+        <MiniNavegatorControls/>
         <Header />
 
         {verticalSpace}
@@ -118,11 +69,6 @@ const Mobile: React.FC = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <ProjectsCards />
         </div>
-
-        <MiniNavegatorControls
-            selected={sectionSelected}
-            onSelect={selectSectionHandler}
-        />
 
         {verticalSpace}
 

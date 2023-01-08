@@ -51,3 +51,32 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color1-dark);
 }
+
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+*::selection {
+  color: none;
+  background: none;
+}
+/* For Mozilla Firefox */
+*::-moz-selection {
+  color: none;
+  background: none;
+}

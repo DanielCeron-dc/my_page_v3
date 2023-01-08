@@ -22,36 +22,6 @@ const verticalSpace = <div style={{ height: '8rem' }} />
 
 
 const Tablet: React.FC = () => {
-    const [sectionSelected, setSectionSelected] = useState(0);
-    //function that scroll to the pixel i want
-    const scrollTo = (pixel: number) => {
-        window.scrollTo({
-            top: pixel,
-            behavior: 'smooth'
-        })
-    }
-
-    const handleOnScroll = () => {
-        if (window.scrollY < 800) {
-            setColor('blue')
-            setSectionSelected(0);
-        } else if (window.scrollY > 800 && window.scrollY < 2000){
-            setColor('orange')
-            setSectionSelected(1);
-        } else {
-            setColor('pink'); 
-            setSectionSelected(2);
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleOnScroll);
-        return () => {
-            return window.removeEventListener('scroll', handleOnScroll);
-        }
-    }, []);
-
-
     return <div style={style} >
         <Header />
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -94,24 +64,7 @@ const Tablet: React.FC = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <ProjectsCards />
         </div>
-        <MiniNavegatorControls
-            selected={sectionSelected}
-            onSelect={(index) => {
-                setSectionSelected(index);
-                switch (index) {
-                    case 0:
-                        scrollTo(0);
-                        break;
-                    case 1:
-                        scrollTo(1000);
-                        break;
-                    case 2:
-                        scrollTo(5000);
-                        break;
-                }
-            }} 
-        
-        />
+        <MiniNavegatorControls/>
         {verticalSpace}
         <ContactPanel/>
     </div>
