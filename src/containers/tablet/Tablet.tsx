@@ -95,7 +95,6 @@ const Tablet: React.FC = () => {
             <ProjectsCards />
         </div>
         <MiniNavegatorControls
-            style={{ position: 'fixed', left: 0, bottom: 0 }}
             selected={sectionSelected}
             onSelect={(index) => {
                 setSectionSelected(index);

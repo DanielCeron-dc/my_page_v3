@@ -2,9 +2,9 @@ import React, { CSSProperties } from 'react';
 import classes from './MiniNavegatorControls.module.css';
 
 
-const MiniNavegatorControls:React.FC<{style: CSSProperties, selected?: number, onSelect: (index: number) => void}> = (props) => {
+const MiniNavegatorControls:React.FC<{ selected?: number, onSelect: (index: number) => void}> = (props) => {
     
-    return <div className = {classes.base} style = {props.style}>
+    return <div className = {classes.base} >
         <div style = {{position: 'relative'}}>
             <div className={`${classes.circle}  ${props.selected === 0 && classes.fill}`}
                 onClick={() => props.onSelect(0)}
