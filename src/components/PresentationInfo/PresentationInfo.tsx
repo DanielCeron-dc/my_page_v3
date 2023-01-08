@@ -15,9 +15,10 @@ const PresentationInfo: React.FC = () => {
         <div className={classes.blackBackground}>
             <img src={onHover ? perfilgif : perfilImg} alt="" />
             <p>
-                Bienvenido, <br /> soy un programador FullStack, <br />
-                y estaria feliz de ayudarte <br />
-                a materializar tus ideas.
+                Welcome!
+                <br /> I am a FullStack developer
+                <br /> and I would be happy to help you
+                <br /> turn your ideas into reality.
             </p>
         </div>
     </div>
