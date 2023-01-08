@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import textureBack from 'assets/textures/dark-brick-wall.png'; 
 import Loader from 'components/Loader/Loader';
 import { useAppStore } from 'store/App.store';
+import useWindow from 'hooks/useWindowDimensions';
 
 
 const LoadingScreen:React.FC = () => {
     const [loaded, setLoaded] = useState(false);
     const { setIsOnProjects } = useAppStore(); 
+    const { isDesktop } = useWindow();
 
     useEffect(() => {
         setTimeout(() => {
@@ -31,9 +33,21 @@ const LoadingScreen:React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        gap: '2rem',
         alignItems: 'center',
     }}>
         <Loader />
+        {isDesktop ? <h1 style={{
+            color: 'var(--color2)',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            letterSpacing: '0.2rem',
+            textTransform: 'uppercase',
+            textAlign: 'center',
+        }}>
+            this page is also responsive ✅
+        </h1> : null}
+
     </div> : null; 
 }
 export default LoadingScreen;

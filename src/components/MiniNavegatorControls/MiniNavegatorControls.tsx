@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import classes from './MiniNavegatorControls.module.css';
 
+let section: number = 0;
+let timeout: NodeJS.Timeout | null = null;
 
 const MiniNavegatorControls: React.FC = () => {
 
     const [sectionSelected, setSectionSelected] = useState<number>(0);
     const [showTooltip, setShowTooltip] = useState<number | null>(null);
-    
+
     const scrollTo = (pixel: number) => {
         window.scrollTo({
             top: pixel,
-            behavior: 'smooth'
+            behavior: 'smooth',
         })
     }
 
@@ -29,29 +31,38 @@ const MiniNavegatorControls: React.FC = () => {
         }
     }
 
-    
+
     const handleOnScroll = () => {
-        let section = null;
-        if (window.scrollY < 800) {
+        console.log(window.scrollY);
+        if (window.scrollY < 850) {
             document.documentElement.style.setProperty('--color2', '#009e89');
             document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
             section = 0;
-        } else if (window.scrollY >= 700 && window.scrollY < 3000) {
+            console.log('section 0');
+        } else if (window.scrollY >= 850 && window.scrollY < 4000) {
             document.documentElement.style.setProperty('--color2', '#cc8800');
             document.documentElement.style.setProperty('--color2-dark', '#af7500');
             section = 1;
+            console.log('section 1');
         } else {
             document.documentElement.style.setProperty('--color2', '#f28579');
             document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
             section = 2;
+            console.log('section 2');
         }
-        if (sectionSelected !== section) {
-            setSectionSelected(section);
-            setShowTooltip(section);
-            setTimeout(() => {
-                setShowTooltip(null);
-            }, 1500);
-        }
+        setSectionSelected(s => {
+            if (s !== section) {
+                setShowTooltip(section);
+                if (timeout) {
+                    clearTimeout(timeout);
+                }
+                timeout = setTimeout(() => {
+                    setShowTooltip(null);
+                }, 3000);
+                return section;
+            }
+            return s;
+        })
     }
 
     useEffect(() => {
@@ -61,8 +72,8 @@ const MiniNavegatorControls: React.FC = () => {
         }
     }, []);
 
-    return <div className = {classes.base} >
-        <div style = {{position: 'relative'}}>
+    return <div className={classes.base} >
+        <div style={{ position: 'relative' }}>
             <div className={`${classes.circle}  ${sectionSelected === 0 && classes.fill}`}
                 onClick={() => selectSectionHandler(0)}
             />
@@ -70,21 +81,21 @@ const MiniNavegatorControls: React.FC = () => {
                 knowledge
             </span>
         </div>
-        <div className={classes.line}/>
+        <div className={classes.line} />
         <div style={{ position: 'relative' }}>
             <div className={`${classes.circle}  ${sectionSelected === 1 && classes.fill}`}
                 onClick={() => selectSectionHandler(1)}
             />
-              <span className={`${classes.tooltip} ${showTooltip === 1 ? classes.show : ''}`}>
+            <span className={`${classes.tooltip} ${showTooltip === 1 ? classes.show : ''}`}>
                 Projects
             </span>
         </div>
-        <div className={classes.line}/>
+        <div className={classes.line} />
         <div style={{ position: 'relative' }}>
             <div className={`${classes.circle}  ${sectionSelected === 2 && classes.fill}`}
                 onClick={() => selectSectionHandler(2)}
             />
-              <span className={`${classes.tooltip} ${showTooltip === 2 ? classes.show : ''}`}>
+            <span className={`${classes.tooltip} ${showTooltip === 2 ? classes.show : ''}`}>
                 Contact-me
             </span>
         </div>
