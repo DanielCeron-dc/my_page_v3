@@ -7,10 +7,10 @@ import ContactButtons from 'components/ContactButtons/ContactButtons';
 
 const ContactPanel:React.FC = () => {
     
-    const handleCopy = (e:any) => {
+    const handleCopy =async (e:any) => {
         e.preventDefault();
         const text = 'damusan21@gmail.com'; 
-        navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(text);
         alert('email copied to clipboard');
     }
 

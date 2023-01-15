@@ -23,7 +23,7 @@ const FloatingKnowledge: React.FC = () => {
             Zustand
         </SpriteText>
         <SpriteText position={[-5, 7, 5]} fontSize={100}>
-            ThreeJs
+            SQL
         </SpriteText>
         <SpriteText position={[-5, -7, -5]} fontSize={100} >
             Java
@@ -32,13 +32,13 @@ const FloatingKnowledge: React.FC = () => {
             Node
         </SpriteText>
         <SpriteText position={[5, -7, -5]} fontSize={100} color="#00d6b9">
-            Blender
+            MySQl
         </SpriteText>
         <SpriteText position={[5, 7, 5]} fontSize={100}>
             Express
         </SpriteText>
         <SpriteText position={[-5, -7, 5]} fontSize={100} color="#00d6b9">
-            React-Context
+            React Native
         </SpriteText>
     </>; 
 }
