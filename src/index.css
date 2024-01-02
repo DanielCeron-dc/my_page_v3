@@ -16,20 +16,21 @@ code {
 
 /* this is the css file for the variables.css file */
 :root {
-    --color1: #201F1F; 
-    --color1-dark: rgb(33, 34, 37);
-    --color2: #009e89; /* navbars */
-    --color2-dark: rgb(1, 134, 117);
-    --color3: rgb(116, 53, 53);
-    --color3-dark: #29446e;
-    --color4: #FF6F61;
-    --color4-dark: #cc564b;
-    --color5: #cc8800;
-    --color5-dark: #af7500;
-    --danger: #ff0000;
-    --danger-dark: #960000;
-    --warning: #ff9f00;
-    --warning-dark: #b46f00;
+  --color1: #201F1F;
+  --color1-dark: rgb(33, 34, 37);
+  --theme: #92b9cc;
+  /* navbars */
+  --theme-dark: #396fa3;
+  --color3: rgb(116, 53, 53);
+  --color3-dark: #29446e;
+  --color4: #FF6F61;
+  --color4-dark: #cc564b;
+  --color5: #cc8800;
+  --color5-dark: #af7500;
+  --danger: #ff0000;
+  --danger-dark: #960000;
+  --warning: #ff9f00;
+  --warning-dark: #b46f00;
 }
 
 /* width */
@@ -39,7 +40,7 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--color2);
+  background: var(--theme);
 }
 
 /* Handle */
@@ -58,10 +59,10 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-*{
+* {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -75,8 +76,18 @@ a {
   color: none;
   background: none;
 }
+
 /* For Mozilla Firefox */
 *::-moz-selection {
   color: none;
   background: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white
 }

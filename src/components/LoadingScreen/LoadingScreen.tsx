@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import textureBack from 'assets/textures/dark-brick-wall.png'; 
+import textureBack from 'assets/textures/dark-brick-wall.png';
 import Loader from 'components/Loader/Loader';
 import { useAppStore } from 'store/App.store';
 import useWindow from 'hooks/useWindowDimensions';
 
 
-const LoadingScreen:React.FC = () => {
+const LoadingScreen: React.FC = () => {
     const [loaded, setLoaded] = useState(false);
-    const { setIsOnProjects } = useAppStore(); 
+    const { setIsOnProjects } = useAppStore();
     const { isDesktop } = useWindow();
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const LoadingScreen:React.FC = () => {
             setLoaded(true);
         }, 3000);
     }, [setIsOnProjects]);
-    
+
     return !loaded ? <div style={{
         position: 'fixed',
         zIndex: 9999,
@@ -38,7 +38,7 @@ const LoadingScreen:React.FC = () => {
     }}>
         <Loader />
         {isDesktop ? <h1 style={{
-            color: 'var(--color2)',
+            color: 'var(--theme)',
             fontSize: '1rem',
             fontWeight: 'bold',
             letterSpacing: '0.2rem',
@@ -48,6 +48,6 @@ const LoadingScreen:React.FC = () => {
             this page is also responsive ✅
         </h1> : null}
 
-    </div> : null; 
+    </div> : null;
 }
 export default LoadingScreen;

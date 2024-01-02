@@ -5,7 +5,7 @@ import classes from './ContactButtons.module.css';
 import { ReactComponent as GithubSvg } from 'assets/svg/github.svg';
 import { ReactComponent as CvSvg } from 'assets/svg/cv.svg';
 import { ReactComponent as LinkedinSvg } from 'assets/svg/linkedin.svg';
-import Cv from 'assets/pdf/cv.pdf';
+import Cv from 'assets/pdf/CV.pdf';
 
 
 const ContactButtons: React.FC = () => {
@@ -23,7 +23,7 @@ const ContactButtons: React.FC = () => {
             download
             style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: 'white' }}
         >
-            CV{' '} <CvSvg style={{ width: 40, height: 40, fill: 'white', margin: '0 10px' }}/>
+            CV{' '} <CvSvg style={{ width: 40, height: 40, fill: 'white', margin: '0 10px' }} />
         </a>
         <a
             href="https://www.linkedin.com/in/daniel-ceron-b10612200/"

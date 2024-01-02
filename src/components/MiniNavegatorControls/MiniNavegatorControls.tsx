@@ -34,16 +34,16 @@ const MiniNavegatorControls: React.FC = () => {
 
     const handleOnScroll = () => {
         if (window.scrollY < 850) {
-            document.documentElement.style.setProperty('--color2', '#009e89');
-            document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
+            document.documentElement.style.setProperty('--theme', '#009e89');
+            document.documentElement.style.setProperty('--theme-dark', 'rgb(1, 134, 117)');
             section = 0;
         } else if (window.scrollY >= 850 && window.scrollY < 4000) {
-            document.documentElement.style.setProperty('--color2', '#cc8800');
-            document.documentElement.style.setProperty('--color2-dark', '#af7500');
+            document.documentElement.style.setProperty('--theme', '#cc8800');
+            document.documentElement.style.setProperty('--theme-dark', '#af7500');
             section = 1;
         } else {
-            document.documentElement.style.setProperty('--color2', '#f28579');
-            document.documentElement.style.setProperty('--color2-dark', 'rgb(1, 134, 117)');
+            document.documentElement.style.setProperty('--theme', '#f28579');
+            document.documentElement.style.setProperty('--theme-dark', 'rgb(1, 134, 117)');
             section = 2;
         }
         setSectionSelected(s => {

@@ -2,7 +2,7 @@
     margin: 0 0 3rem 0;
     width: 60vw;
     height: 80vh;
-    border: 2px solid var(--color2); 
+    border: 2px solid var(--theme);
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     align-items: center;
     padding: 1rem;
     box-sizing: border-box;
-    color: var(--color2);
+    color: var(--theme);
 }
 
 @media (max-width: 700px) {
@@ -19,15 +19,15 @@
         margin: 0 0 5rem 0;
     }
 
-    
+
 }
 
 .contactPanel h1 {
-    color: var(--color2);
+    color: var(--theme);
 }
 
 .contactPanel button {
-    background-color: var(--color2);
+    background-color: var(--theme);
     color: var(--color1);
     border: none;
     border-radius: 1rem;
@@ -39,8 +39,8 @@
 
 .contactPanel button:hover {
     background-color: var(--color1);
-    border: 2px solid var(--color2);
-    color: var(--color2);
+    border: 2px solid var(--theme);
+    color: var(--theme);
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
 }

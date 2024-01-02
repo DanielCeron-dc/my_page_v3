@@ -1,7 +1,6 @@
-
 .button {
     padding: 0px 10px;
-    border: 3px solid var(--color2);
+    border: 3px solid var(--theme);
     overflow: hidden;
     background-color: transparent;
     text-align: center;
@@ -19,20 +18,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    background: var(--color2);
+    background: var(--theme);
     transition: .5s ease;
     display: block;
     z-index: -1;
 }
 
 .button:hover::before {
- width: 105%;
+    width: 105%;
 }
 
 .button:hover {
- color: #111;
+    color: #111;
 }
 
-.button:hover  .svg {
- fill: black; 
+.button:hover .svg {
+    fill: black;
 }

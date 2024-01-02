@@ -5,7 +5,7 @@
     align-items: center;
     min-height: 100vh;
     width: 100vw;
-    background: linear-gradient(90deg, transparent 50%, var(--color2) 50%);
+    background: linear-gradient(90deg, transparent 50%, var(--theme) 50%);
 
 }
 
@@ -16,7 +16,7 @@
     color: white;
 }
 
-.header h1{
+.header h1 {
     color: white;
 }
 
@@ -35,9 +35,11 @@
     from {
         width: 0%;
     }
+
     50% {
         width: 100%;
     }
+
     to {
         width: 0%;
     }
