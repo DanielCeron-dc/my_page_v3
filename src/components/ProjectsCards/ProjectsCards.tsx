@@ -3,8 +3,8 @@ import React from 'react';
 import { useAppStore } from 'store/App.store';
 
 
-const ProjectsCards:React.FC = () => {
-    const {projects , isLoadingProjects} = useAppStore(); 
+const ProjectsCards: React.FC = () => {
+    const { projects, isLoadingProjects } = useAppStore();
     return !isLoadingProjects ? <>
         {projects.map((project, index) => {
             return <Card
@@ -17,6 +17,6 @@ const ProjectsCards:React.FC = () => {
                 link={project.link}
             />
         })}
-    </> : null; 
+    </> : null;
 }
 export default ProjectsCards;

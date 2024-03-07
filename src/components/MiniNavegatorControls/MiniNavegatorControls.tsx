@@ -42,7 +42,7 @@ const MiniNavegatorControls: React.FC = () => {
             changeTheme('blue');
             section = 1;
         } else {
-            changeTheme('red');
+            changeTheme('purple');
             section = 2;
         }
         setSectionSelected(s => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppStore } from 'store/App.store';
 import classes from './Card.module.css';
+import useWindow from 'hooks/useWindowDimensions';
 
 type CardProps = {
     img: string;
@@ -16,6 +17,9 @@ const Card: React.FC<CardProps> = (props) => {
     const { selectedProject } = useAppStore();
     const { position } = props;
 
+    const { isDesktop } = useWindow()
+    console.log(isDesktop)
+
     useEffect(() => {
         if (selectedProject === position) {
             setCardSelected(true);
@@ -24,7 +28,11 @@ const Card: React.FC<CardProps> = (props) => {
         }
     }, [selectedProject, position])
 
-    return <a href={props.link} className={`${classes.Card}  ${cardSelected ? classes.selected : ''}`}>
+    return <a href={props.link}
+        style={{
+            zIndex: isDesktop ? 1000000 : 0,
+        }}
+        className={`${classes.Card}  ${cardSelected ? classes.selected : ''}`}>
 
         <img src={props.img} alt="" className={classes.CardImg} />
         <div className={classes.CardContent}>

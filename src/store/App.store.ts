@@ -53,16 +53,21 @@ export const useAppStore = create<IAppState>()(subscribeWithSelector((set) => ({
     },
     changeTheme: (theme: string) => set((state) => {
 
-        document.documentElement.style.setProperty('--theme', colors[theme as keyof typeof colors]);
-        document.documentElement.style.setProperty('--theme-dark', shadeColor(colors[theme as keyof typeof colors], -20));
+        let color = colors[theme as keyof typeof colors]
+        if (!color) {
+            color = colors.green;
+        }
+
+        document.documentElement.style.setProperty('--theme', color);
+        document.documentElement.style.setProperty('--theme-dark', shadeColor(color, -20));
 
         localStorage.setItem('theme', theme);
 
         return ({
             ...state,
             theme: {
-                primary: colors[theme as keyof typeof colors],
-                secondary: shadeColor(colors[theme as keyof typeof colors], -20)
+                primary: color,
+                secondary: shadeColor(color, -20)
             }
         })
     }),

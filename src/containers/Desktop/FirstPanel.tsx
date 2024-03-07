@@ -16,35 +16,35 @@ const FirstPanel: React.FC = () => {
     const { isOnProjects, selectedProject, isExpanded, setIsExpanded } = useAppStore();
 
     useEffect(() => {
-        if (selectedProject === -1) return; 
+        if (selectedProject === -1) return;
         setIsExpanded(true);
     }, [selectedProject, setIsExpanded]);
 
     return <div
         className={`${classes.firstPanel} ${isExpanded ? classes.expanded : ''}`}
     >
-        <div>
-            <section className={classes.content}>
-                <Projects />
-                <div className={classes.content__main}>
-                    <h1>
-                        Daniel Cerón
-                    </h1>
-                    <PresentationInfo />
-                    <ContactButtons />
-                </div>
-            </section>
-            {isOnProjects && <div className={`${classes.base} ${isExpanded ? classes.expanded : ''}`}>
-                <Button
-                    className={`${classes.extendButton} ${isExpanded ? classes.expanded : ''}`}
-                    onClick={() => {
-                        setIsExpanded(!isExpanded);
-                    }}>
-                    {!isExpanded && <>  see more about the projects </>}
-                    <EastSvg className={classes.svg} />
-                </Button>
-            </div>}
-        </div>
+
+        <section className={classes.content}>
+            <Projects />
+            <div className={classes.content__main}>
+                <h1>
+                    Daniel Cerón
+                </h1>
+                <PresentationInfo />
+                <ContactButtons />
+            </div>
+        </section>
+        {isOnProjects && <div className={`${classes.base}  ${isExpanded ? classes.expanded : ''}`}>
+            <Button
+                className={`${classes.extendButton} ${isExpanded ? classes.expanded : ''}`}
+                onClick={() => {
+                    setIsExpanded(!isExpanded);
+                }}>
+                {!isExpanded && <>  see more about the projects </>}
+                <EastSvg className={classes.svg} />
+            </Button>
+        </div>}
+
     </div>
 }
 export default FirstPanel;

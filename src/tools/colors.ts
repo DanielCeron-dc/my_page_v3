@@ -5,7 +5,7 @@ export default {
     green: '#4CAF50',
     blue: '#2196F3',
     purple: '#9C27B0',
-    yellow: '#F4F27E'
+    orange: '#d9931a'
 }
 
 export function shadeColor(color: string, percent: number) {

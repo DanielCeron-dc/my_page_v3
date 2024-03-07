@@ -2,7 +2,7 @@
     display: flex;
     height: 100vh;
     border: none;
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 100;
     transform: translate(-30vw, 0);
@@ -28,28 +28,31 @@
 .extendButton {
     border: 3px solid var(--theme);
     height: 3.2rem;
+    width: 23vw;
+    max-width: 20rem;
     font-size: larger;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     bottom: 2rem;
-    right: -20rem;
+    padding: 0.5rem 1rem;
+    right: -22vw;
 }
 
+
+
+
 .base.expanded {
-    transform: translate(-19.5rem, 0);
+    transform: translate(-20vw, 0);
     transition: all ease-in-out 0.5s;
 }
 
 
-.extendButton {
-    padding: 0;
-    right: -21rem;
-}
-
 .extendButton.expanded {
     transform: rotate(180deg);
+    padding: 1rem;
+    width: 3.2rem;
 }
 
 
@@ -69,8 +72,8 @@
 
 .svg {
     fill: var(--theme);
-    width: 2.4rem;
-    height: 2.4rem;
+    min-width: 2.4rem;
+    min-height: 2.4rem;
     cursor: pointer;
 }
 
