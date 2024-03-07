@@ -10,10 +10,10 @@ const FloatingKnowledge: React.FC = () => {
     const colorLight = shadeColor(theme.primary, 10);
 
     return <>
-        <SpriteText position={[0, 0, 11]} fontSize={100} color={theme.primary}>
+        <SpriteText position={[0, 0, 11]} fontSize={100} color={colorLight}>
             Typescript
         </SpriteText>
-        <SpriteText position={[11, 0, 0]} fontSize={100} color={theme.primary}>
+        <SpriteText position={[11, 0, 0]} fontSize={100} color={colorLight}>
             React
         </SpriteText>
         <SpriteText position={[-11, 0, 0]} fontSize={100} >
@@ -22,11 +22,11 @@ const FloatingKnowledge: React.FC = () => {
         <SpriteText position={[0, 0, -11]} fontSize={100}>
             C#
         </SpriteText>
-        <SpriteText position={[5, 7, -5]} fontSize={100} color={theme.primary}>
+        <SpriteText position={[5, 7, -5]} fontSize={100} color={colorLight}>
             MongoDb
         </SpriteText>
-        <SpriteText position={[5, -7, 5]} fontSize={100} color={theme.primary}>
-            Zustand
+        <SpriteText position={[5, -7, 5]} fontSize={100} color={colorLight}>
+            Zustand/Redux
         </SpriteText>
         <SpriteText position={[-5, 7, 5]} fontSize={100}>
             SQL
@@ -37,13 +37,13 @@ const FloatingKnowledge: React.FC = () => {
         <SpriteText position={[-5, 7, -5]} fontSize={100}>
             Node
         </SpriteText>
-        <SpriteText position={[5, -7, -5]} fontSize={100} color={theme.primary}>
+        <SpriteText position={[5, -7, -5]} fontSize={100} color={colorLight}>
             MySQl
         </SpriteText>
         <SpriteText position={[5, 7, 5]} fontSize={100}>
             Express
         </SpriteText>
-        <SpriteText position={[-5, -7, 5]} fontSize={100} color={theme.primary}>
+        <SpriteText position={[-5, -7, 5]} fontSize={100} color={colorLight}>
             React Native
         </SpriteText>
     </>;

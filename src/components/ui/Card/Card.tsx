@@ -8,13 +8,13 @@ type CardProps = {
     description: string;
     labels: string[];
     link: string;
-    position: number; 
+    position: number;
 };
 
 const Card: React.FC<CardProps> = (props) => {
     const [cardSelected, setCardSelected] = useState(false);
     const { selectedProject } = useAppStore();
-    const {position } = props;
+    const { position } = props;
 
     useEffect(() => {
         if (selectedProject === position) {
@@ -24,15 +24,14 @@ const Card: React.FC<CardProps> = (props) => {
         }
     }, [selectedProject, position])
 
-    return <a href ={props.link}>
-        <div className={`${classes.Card}  ${cardSelected ? classes.selected : ''}`}>
-            <img src={props.img} alt="" className={classes.CardImg} />
-            <div className={classes.CardContent}>
-                <h3>{props.title}</h3>
-                <p>{props.description}</p>
-                <div className={classes.CardLabels}>
-                    {props.labels.map((label, index) => <span key={index}>{label}</span>)}
-                </div>
+    return <a href={props.link} className={`${classes.Card}  ${cardSelected ? classes.selected : ''}`}>
+
+        <img src={props.img} alt="" className={classes.CardImg} />
+        <div className={classes.CardContent}>
+            <h3>{props.title}</h3>
+            <p>{props.description}</p>
+            <div className={classes.CardLabels}>
+                {props.labels.map((label, index) => <span key={index}>{label}</span>)}
             </div>
         </div>
     </a>

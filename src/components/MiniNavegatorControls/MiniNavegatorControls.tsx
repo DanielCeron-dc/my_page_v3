@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classes from './MiniNavegatorControls.module.css';
+import { useAppStore } from 'store/App.store';
 
 let section: number = 0;
 let timeout: NodeJS.Timeout | null = null;
@@ -8,6 +9,7 @@ const MiniNavegatorControls: React.FC = () => {
 
     const [sectionSelected, setSectionSelected] = useState<number>(0);
     const [showTooltip, setShowTooltip] = useState<number | null>(null);
+    const { changeTheme } = useAppStore();
 
     const scrollTo = (pixel: number) => {
         window.scrollTo({
@@ -34,16 +36,13 @@ const MiniNavegatorControls: React.FC = () => {
 
     const handleOnScroll = () => {
         if (window.scrollY < 850) {
-            document.documentElement.style.setProperty('--theme', '#009e89');
-            document.documentElement.style.setProperty('--theme-dark', 'rgb(1, 134, 117)');
+            changeTheme('green');
             section = 0;
         } else if (window.scrollY >= 850 && window.scrollY < 4000) {
-            document.documentElement.style.setProperty('--theme', '#cc8800');
-            document.documentElement.style.setProperty('--theme-dark', '#af7500');
+            changeTheme('blue');
             section = 1;
         } else {
-            document.documentElement.style.setProperty('--theme', '#f28579');
-            document.documentElement.style.setProperty('--theme-dark', 'rgb(1, 134, 117)');
+            changeTheme('red');
             section = 2;
         }
         setSectionSelected(s => {

@@ -13,7 +13,7 @@ const SelectTheme: React.FC = () => {
 
     return <div className={classes.SelectTheme} onClick={() => setIsOpened(!isOpened)}>
         <div className={classes.button}>
-            <p style={{ fontSize: '1rem' }}>Theme</p>
+            <p style={{ fontSize: '1rem' }}>Color</p>
             <div className={classes.arrow}>
                 <div className={isOpened ? classes.arrowUp : classes.arrowDown}></div>
             </div>

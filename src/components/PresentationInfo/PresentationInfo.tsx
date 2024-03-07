@@ -24,7 +24,7 @@ const PresentationInfo: React.FC = () => {
             <p >
                 Experience
             </p>
-            <div style={{ display: 'flex', gap: 10 }}>
+            <div style={{ display: 'flex', gap: '10%', justifyContent: 'space-evenly' }}>
                 <Experience
                     dateStart='Jan 2021'
                     dateEnd='Nov 2021'

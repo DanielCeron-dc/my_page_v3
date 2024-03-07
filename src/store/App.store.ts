@@ -4,8 +4,7 @@ import create from 'zustand';
 import { IProject } from 'api/IProject';
 import { Services } from 'api/Services';
 import colors, { shadeColor } from 'tools/colors';
-
-
+import { Color } from 'three';
 
 interface IAppState {
     isOnProjects: boolean;
@@ -31,8 +30,8 @@ export const useAppStore = create<IAppState>()(subscribeWithSelector((set) => ({
     projects: [],
     isLoadingProjects: true,
     theme: {
-        primary: colors.blue,
-        secondary: shadeColor(colors.blue, -20)
+        primary: colors.green,
+        secondary: shadeColor(colors.green, -20)
     },
     fetchProjects: async (): Promise<number> => {
         const projects: IProject[] = await Services.fetchProjects();
@@ -56,6 +55,8 @@ export const useAppStore = create<IAppState>()(subscribeWithSelector((set) => ({
 
         document.documentElement.style.setProperty('--theme', colors[theme as keyof typeof colors]);
         document.documentElement.style.setProperty('--theme-dark', shadeColor(colors[theme as keyof typeof colors], -20));
+
+        localStorage.setItem('theme', theme);
 
         return ({
             ...state,

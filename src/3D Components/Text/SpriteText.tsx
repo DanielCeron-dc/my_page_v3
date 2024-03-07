@@ -74,7 +74,7 @@ const SpriteText: React.FC<TextProps> = ({ color = 'white', fontSize = 4.5, chil
 
     return (
         <sprite ref={ref} scale={[4, 2, 10]} >
-            <spriteMaterial sizeAttenuation={true} attach="material" color={color}>
+            <spriteMaterial sizeAttenuation={true} attach="material" color={color} colorWrite >
                 <canvasTexture attach="map" image={canvas} />
             </spriteMaterial>
         </sprite>

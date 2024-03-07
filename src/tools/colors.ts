@@ -1,12 +1,11 @@
-const colorsOptions = ['orange', 'blue', 'green', 'purple', 'red', 'yellow', 'pink', 'black', 'white'];
-export type colorKeys = 'gray' | 'green' | 'blue' | 'purple' | 'orange' | 'pink' | 'yellow' | 'red' | 'white';
+
 
 
 export default {
     green: '#4CAF50',
     blue: '#2196F3',
-    pink: '#E91E63',
-    yellow: '#FFEB3B'
+    purple: '#9C27B0',
+    yellow: '#F4F27E'
 }
 
 export function shadeColor(color: string, percent: number) {
