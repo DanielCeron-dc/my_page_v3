@@ -1,12 +1,13 @@
 import React from 'react';
-import classes from './Button.module.css';
+import classes from './ButtonV2.module.css';
 
-
-const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
-
+const ButtonV2: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
     let propsToPass = { ...props };
     delete propsToPass.className;
     return <button {...propsToPass} className={`${classes.button} ${props.className} `}>
+        {props.children}
     </button>
 }
-export default Button;
+
+export default ButtonV2;
+

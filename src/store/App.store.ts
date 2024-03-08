@@ -4,7 +4,6 @@ import create from 'zustand';
 import { IProject } from 'api/IProject';
 import { Services } from 'api/Services';
 import colors, { shadeColor } from 'tools/colors';
-import { Color } from 'three';
 
 interface IAppState {
     isOnProjects: boolean;

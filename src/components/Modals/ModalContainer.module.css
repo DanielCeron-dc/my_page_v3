@@ -33,3 +33,28 @@
     gap: 1rem;
     z-index: 10000;
 }
+
+.closeButton {
+    position: absolute;
+    top: 1.6rem;
+    right: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: var(--theme);
+    border: none;
+    border-radius: 50%;
+    color: var(--color1);
+    font-size: 1.5rem;
+    transition: all 0.3s ease-out;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeButton:hover {
+    background-color: var(--color1);
+    color: var(--theme);
+    transform: scale(1.1);
+}

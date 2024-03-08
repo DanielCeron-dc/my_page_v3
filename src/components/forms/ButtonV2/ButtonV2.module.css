@@ -1,0 +1,17 @@
+.button {
+    background-color: transparent;
+    border: 1px solid var(--theme);
+    border-radius: 5px;
+    color: var(--theme);
+    padding: 11px;
+    text-align: center;
+    display: flex;
+    font-size: 16px;
+    cursor: pointer;
+    fill: var(--theme);
+    align-items: center;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}

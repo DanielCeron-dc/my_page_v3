@@ -8,8 +8,10 @@ type CardProps = {
     title: string;
     description: string;
     labels: string[];
-    link: string;
+    link?: string;
+    onClick?: () => void;
     position: number;
+
 };
 
 const Card: React.FC<CardProps> = (props) => {
@@ -28,7 +30,14 @@ const Card: React.FC<CardProps> = (props) => {
         }
     }, [selectedProject, position])
 
-    return <a href={props.link}
+    return <button onClick={() => {
+        if (props.onClick) {
+            props.onClick();
+        }
+        if (props.link) {
+            window.open(props.link, '_blank');
+        }
+    }}
         style={{
             zIndex: isDesktop ? 1000000 : 0,
         }}
@@ -42,6 +51,6 @@ const Card: React.FC<CardProps> = (props) => {
                 {props.labels.map((label, index) => <span key={index}>{label}</span>)}
             </div>
         </div>
-    </a>
+    </button>
 }
 export default Card;
